@@ -25,7 +25,7 @@
     if (!root.FormAPI) {
       root.FormAPI = {};
     }
-    root.FormAPI.Template = factory(root.FormAPI.ApiClient);
+    root.FormAPI.Template1 = factory(root.FormAPI.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -34,14 +34,14 @@
 
 
   /**
-   * The Template model module.
-   * @module model/Template
+   * The Template1 model module.
+   * @module model/Template1
    * @version 2.3.0
    */
 
   /**
-   * Constructs a new <code>Template</code>.
-   * @alias module:model/Template
+   * Constructs a new <code>Template1</code>.
+   * @alias module:model/Template1
    * @class
    */
   var exports = function() {
@@ -60,15 +60,14 @@
 
 
 
-
   };
 
   /**
-   * Constructs a <code>Template</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>Template1</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/Template} obj Optional instance to populate.
-   * @return {module:model/Template} The populated <code>Template</code> instance.
+   * @param {module:model/Template1} obj Optional instance to populate.
+   * @return {module:model/Template1} The populated <code>Template1</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -110,9 +109,6 @@
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
       }
-      if (data.hasOwnProperty('page_dimensions')) {
-        obj['page_dimensions'] = ApiClient.convertToType(data['page_dimensions'], [['Number']]);
-      }
       if (data.hasOwnProperty('redirect_url')) {
         obj['redirect_url'] = ApiClient.convertToType(data['redirect_url'], 'String');
       }
@@ -121,7 +117,7 @@
   }
 
   /**
-   * @member {module:model/Template.ExpirationIntervalEnum} expiration_interval
+   * @member {module:model/Template1.ExpirationIntervalEnum} expiration_interval
    */
   exports.prototype['expiration_interval'] = undefined;
   /**
@@ -168,10 +164,6 @@
    * @member {String} id
    */
   exports.prototype['id'] = undefined;
-  /**
-   * @member {Array.<Array.<Number>>} page_dimensions
-   */
-  exports.prototype['page_dimensions'] = undefined;
   /**
    * @member {String} redirect_url
    */
