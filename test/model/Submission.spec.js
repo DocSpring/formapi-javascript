@@ -116,6 +116,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property actions (base name: "actions")', function() {
+      // uncomment below and update the code to test the property actions
+      //var instance = new FormAPI.Submission();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

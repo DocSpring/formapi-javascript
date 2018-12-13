@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/SubmissionDataRequest'], factory);
+    define(['ApiClient', 'model/SubmissionAction', 'model/SubmissionDataRequest'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./SubmissionDataRequest'));
+    module.exports = factory(require('../ApiClient'), require('./SubmissionAction'), require('./SubmissionDataRequest'));
   } else {
     // Browser globals (root is window)
     if (!root.FormAPI) {
       root.FormAPI = {};
     }
-    root.FormAPI.Submission = factory(root.FormAPI.ApiClient, root.FormAPI.SubmissionDataRequest);
+    root.FormAPI.Submission = factory(root.FormAPI.ApiClient, root.FormAPI.SubmissionAction, root.FormAPI.SubmissionDataRequest);
   }
-}(this, function(ApiClient, SubmissionDataRequest) {
+}(this, function(ApiClient, SubmissionAction, SubmissionDataRequest) {
   'use strict';
 
 
@@ -36,7 +36,7 @@
   /**
    * The Submission model module.
    * @module model/Submission
-   * @version 2.3.0
+   * @version 2.4.0
    */
 
   /**
@@ -57,6 +57,7 @@
 
 
     _this['state'] = state;
+
 
 
 
@@ -104,6 +105,9 @@
       if (data.hasOwnProperty('data_requests')) {
         obj['data_requests'] = ApiClient.convertToType(data['data_requests'], [SubmissionDataRequest]);
       }
+      if (data.hasOwnProperty('actions')) {
+        obj['actions'] = ApiClient.convertToType(data['actions'], [SubmissionAction]);
+      }
     }
     return obj;
   }
@@ -148,6 +152,10 @@
    * @member {Array.<module:model/SubmissionDataRequest>} data_requests
    */
   exports.prototype['data_requests'] = undefined;
+  /**
+   * @member {Array.<module:model/SubmissionAction>} actions
+   */
+  exports.prototype['actions'] = undefined;
 
 
   /**

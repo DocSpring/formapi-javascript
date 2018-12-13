@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/CombinedSubmissionAction'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./CombinedSubmissionAction'));
   } else {
     // Browser globals (root is window)
     if (!root.FormAPI) {
       root.FormAPI = {};
     }
-    root.FormAPI.CombinedSubmission = factory(root.FormAPI.ApiClient);
+    root.FormAPI.CombinedSubmission = factory(root.FormAPI.ApiClient, root.FormAPI.CombinedSubmissionAction);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, CombinedSubmissionAction) {
   'use strict';
 
 
@@ -36,7 +36,7 @@
   /**
    * The CombinedSubmission model module.
    * @module model/CombinedSubmission
-   * @version 2.3.0
+   * @version 2.4.0
    */
 
   /**
@@ -46,6 +46,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -88,6 +89,9 @@
       if (data.hasOwnProperty('state')) {
         obj['state'] = ApiClient.convertToType(data['state'], 'String');
       }
+      if (data.hasOwnProperty('actions')) {
+        obj['actions'] = ApiClient.convertToType(data['actions'], [CombinedSubmissionAction]);
+      }
     }
     return obj;
   }
@@ -120,6 +124,10 @@
    * @member {module:model/CombinedSubmission.StateEnum} state
    */
   exports.prototype['state'] = undefined;
+  /**
+   * @member {Array.<module:model/CombinedSubmissionAction>} actions
+   */
+  exports.prototype['actions'] = undefined;
 
 
   /**

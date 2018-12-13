@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **submissionIds** | **[String]** |  | [optional] 
 **id** | **String** |  | [optional] 
 **state** | **String** |  | [optional] 
+**actions** | [**[CombinedSubmissionAction]**](CombinedSubmissionAction.md) |  | [optional] 
 
 
 <a name="StateEnum"></a>

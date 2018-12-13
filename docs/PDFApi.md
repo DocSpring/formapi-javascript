@@ -215,7 +215,7 @@ Name | Type | Description  | Notes
 
 <a name="createTemplate"></a>
 # **createTemplate**
-> Template1 createTemplate(templateDocument, templateName)
+> PendingTemplate createTemplate(templateDocument, templateName)
 
 Upload a new PDF template
 
@@ -251,7 +251,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Template1**](Template1.md)
+[**PendingTemplate**](PendingTemplate.md)
 
 ### Authorization
 

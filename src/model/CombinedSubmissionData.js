@@ -36,7 +36,7 @@
   /**
    * The CombinedSubmissionData model module.
    * @module model/CombinedSubmissionData
-   * @version 2.3.0
+   * @version 2.4.0
    */
 
   /**

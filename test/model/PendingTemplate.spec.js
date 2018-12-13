@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new FormAPI.Template1();
+    instance = new FormAPI.PendingTemplate();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,88 +49,88 @@
       object[property] = value;
   }
 
-  describe('Template1', function() {
-    it('should create an instance of Template1', function() {
-      // uncomment below and update the code to test Template1
-      //var instance = new FormAPI.Template1();
-      //expect(instance).to.be.a(FormAPI.Template1);
+  describe('PendingTemplate', function() {
+    it('should create an instance of PendingTemplate', function() {
+      // uncomment below and update the code to test PendingTemplate
+      //var instance = new FormAPI.PendingTemplate();
+      //expect(instance).to.be.a(FormAPI.PendingTemplate);
     });
 
     it('should have the property expirationInterval (base name: "expiration_interval")', function() {
       // uncomment below and update the code to test the property expirationInterval
-      //var instance = new FormAPI.Template1();
+      //var instance = new FormAPI.PendingTemplate();
       //expect(instance).to.be();
     });
 
     it('should have the property webhookUrl (base name: "webhook_url")', function() {
       // uncomment below and update the code to test the property webhookUrl
-      //var instance = new FormAPI.Template1();
+      //var instance = new FormAPI.PendingTemplate();
       //expect(instance).to.be();
     });
 
     it('should have the property expireAfter (base name: "expire_after")', function() {
       // uncomment below and update the code to test the property expireAfter
-      //var instance = new FormAPI.Template1();
+      //var instance = new FormAPI.PendingTemplate();
       //expect(instance).to.be();
     });
 
     it('should have the property allowAdditionalProperties (base name: "allow_additional_properties")', function() {
       // uncomment below and update the code to test the property allowAdditionalProperties
-      //var instance = new FormAPI.Template1();
+      //var instance = new FormAPI.PendingTemplate();
       //expect(instance).to.be();
     });
 
     it('should have the property publicSubmissions (base name: "public_submissions")', function() {
       // uncomment below and update the code to test the property publicSubmissions
-      //var instance = new FormAPI.Template1();
+      //var instance = new FormAPI.PendingTemplate();
       //expect(instance).to.be();
     });
 
     it('should have the property slackWebhookUrl (base name: "slack_webhook_url")', function() {
       // uncomment below and update the code to test the property slackWebhookUrl
-      //var instance = new FormAPI.Template1();
+      //var instance = new FormAPI.PendingTemplate();
       //expect(instance).to.be();
     });
 
     it('should have the property blockchainTimestampVerification (base name: "blockchain_timestamp_verification")', function() {
       // uncomment below and update the code to test the property blockchainTimestampVerification
-      //var instance = new FormAPI.Template1();
+      //var instance = new FormAPI.PendingTemplate();
       //expect(instance).to.be();
     });
 
     it('should have the property publicWebForm (base name: "public_web_form")', function() {
       // uncomment below and update the code to test the property publicWebForm
-      //var instance = new FormAPI.Template1();
+      //var instance = new FormAPI.PendingTemplate();
       //expect(instance).to.be();
     });
 
     it('should have the property expireSubmissions (base name: "expire_submissions")', function() {
       // uncomment below and update the code to test the property expireSubmissions
-      //var instance = new FormAPI.Template1();
+      //var instance = new FormAPI.PendingTemplate();
       //expect(instance).to.be();
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instance = new FormAPI.Template1();
+      //var instance = new FormAPI.PendingTemplate();
       //expect(instance).to.be();
     });
 
     it('should have the property templateType (base name: "template_type")', function() {
       // uncomment below and update the code to test the property templateType
-      //var instance = new FormAPI.Template1();
+      //var instance = new FormAPI.PendingTemplate();
       //expect(instance).to.be();
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instance = new FormAPI.Template1();
+      //var instance = new FormAPI.PendingTemplate();
       //expect(instance).to.be();
     });
 
     it('should have the property redirectUrl (base name: "redirect_url")', function() {
       // uncomment below and update the code to test the property redirectUrl
-      //var instance = new FormAPI.Template1();
+      //var instance = new FormAPI.PendingTemplate();
       //expect(instance).to.be();
     });
 

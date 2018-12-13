@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **downloadUrl** | **String** |  | [optional] 
 **batchId** | **String** |  | [optional] 
 **dataRequests** | [**[SubmissionDataRequest]**](SubmissionDataRequest.md) |  | [optional] 
+**actions** | [**[SubmissionAction]**](SubmissionAction.md) |  | [optional] 
 
 
 <a name="StateEnum"></a>
