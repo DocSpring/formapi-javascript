@@ -36,7 +36,7 @@
   /**
    * The Submission model module.
    * @module model/Submission
-   * @version 2.4.0
+   * @version 2.5.0
    */
 
   /**

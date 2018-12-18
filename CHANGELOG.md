@@ -1,3 +1,6 @@
+### 2.5.0 [December 18, 2018]
+* Updated API host to api.formapi.io
+
 ### 2.4.0 [December 13, 2018]
 * Fix model name for newly created Templates (PendingTemplate)
 * Added "actions" to submission and combined_submission responses. Includes information about custom S3 uploads

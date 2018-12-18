@@ -32,7 +32,7 @@
 
   /**
    * @module ApiClient
-   * @version 2.4.0
+   * @version 2.5.0
    */
 
   /**
@@ -46,9 +46,9 @@
     /**
      * The base URL against which to resolve every API call's (relative) path.
      * @type {String}
-     * @default https://app.formapi.io/api/v1
+     * @default https://api.formapi.io/api/v1
      */
-    this.basePath = 'https://app.formapi.io/api/v1'.replace(/\/+$/, '');
+    this.basePath = 'https://api.formapi.io/api/v1'.replace(/\/+$/, '');
 
     /**
      * The authentication methods to be included for all API calls.
