@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new FormAPI.CreateSubmissionDataBatchRequest();
+    instance = new FormAPI.CombinePdfsData();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,46 +49,40 @@
       object[property] = value;
   }
 
-  describe('CreateSubmissionDataBatchRequest', function() {
-    it('should create an instance of CreateSubmissionDataBatchRequest', function() {
-      // uncomment below and update the code to test CreateSubmissionDataBatchRequest
-      //var instance = new FormAPI.CreateSubmissionDataBatchRequest();
-      //expect(instance).to.be.a(FormAPI.CreateSubmissionDataBatchRequest);
-    });
-
-    it('should have the property templateId (base name: "template_id")', function() {
-      // uncomment below and update the code to test the property templateId
-      //var instance = new FormAPI.CreateSubmissionDataBatchRequest();
-      //expect(instance).to.be();
+  describe('CombinePdfsData', function() {
+    it('should create an instance of CombinePdfsData', function() {
+      // uncomment below and update the code to test CombinePdfsData
+      //var instance = new FormAPI.CombinePdfsData();
+      //expect(instance).to.be.a(FormAPI.CombinePdfsData);
     });
 
     it('should have the property test (base name: "test")', function() {
       // uncomment below and update the code to test the property test
-      //var instance = new FormAPI.CreateSubmissionDataBatchRequest();
+      //var instance = new FormAPI.CombinePdfsData();
       //expect(instance).to.be();
     });
 
-    it('should have the property data (base name: "data")', function() {
-      // uncomment below and update the code to test the property data
-      //var instance = new FormAPI.CreateSubmissionDataBatchRequest();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property html (base name: "html")', function() {
-      // uncomment below and update the code to test the property html
-      //var instance = new FormAPI.CreateSubmissionDataBatchRequest();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property css (base name: "css")', function() {
-      // uncomment below and update the code to test the property css
-      //var instance = new FormAPI.CreateSubmissionDataBatchRequest();
+    it('should have the property sourcePdfs (base name: "source_pdfs")', function() {
+      // uncomment below and update the code to test the property sourcePdfs
+      //var instance = new FormAPI.CombinePdfsData();
       //expect(instance).to.be();
     });
 
     it('should have the property metadata (base name: "metadata")', function() {
       // uncomment below and update the code to test the property metadata
-      //var instance = new FormAPI.CreateSubmissionDataBatchRequest();
+      //var instance = new FormAPI.CombinePdfsData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property expiresIn (base name: "expires_in")', function() {
+      // uncomment below and update the code to test the property expiresIn
+      //var instance = new FormAPI.CombinePdfsData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property deleteCustomFiles (base name: "delete_custom_files")', function() {
+      // uncomment below and update the code to test the property deleteCustomFiles
+      //var instance = new FormAPI.CombinePdfsData();
       //expect(instance).to.be();
     });
 

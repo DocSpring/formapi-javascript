@@ -25,7 +25,7 @@
     if (!root.FormAPI) {
       root.FormAPI = {};
     }
-    root.FormAPI.CreateSubmissionDataBatchRequest = factory(root.FormAPI.ApiClient);
+    root.FormAPI.SubmissionDataBatchRequest = factory(root.FormAPI.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -34,42 +34,43 @@
 
 
   /**
-   * The CreateSubmissionDataBatchRequest model module.
-   * @module model/CreateSubmissionDataBatchRequest
-   * @version 2.5.0
+   * The SubmissionDataBatchRequest model module.
+   * @module model/SubmissionDataBatchRequest
+   * @version 2.6.0
    */
 
   /**
-   * Constructs a new <code>CreateSubmissionDataBatchRequest</code>.
-   * @alias module:model/CreateSubmissionDataBatchRequest
+   * Constructs a new <code>SubmissionDataBatchRequest</code>.
+   * @alias module:model/SubmissionDataBatchRequest
    * @class
-   * @param templateId {String} 
-   * @param data {Object} 
    */
-  var exports = function(templateId, data) {
+  var exports = function() {
     var _this = this;
 
-    _this['template_id'] = templateId;
 
-    _this['data'] = data;
+
+
 
 
 
   };
 
   /**
-   * Constructs a <code>CreateSubmissionDataBatchRequest</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>SubmissionDataBatchRequest</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/CreateSubmissionDataBatchRequest} obj Optional instance to populate.
-   * @return {module:model/CreateSubmissionDataBatchRequest} The populated <code>CreateSubmissionDataBatchRequest</code> instance.
+   * @param {module:model/SubmissionDataBatchRequest} obj Optional instance to populate.
+   * @return {module:model/SubmissionDataBatchRequest} The populated <code>SubmissionDataBatchRequest</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('template_id')) {
-        obj['template_id'] = ApiClient.convertToType(data['template_id'], 'String');
+      if (data.hasOwnProperty('css')) {
+        obj['css'] = ApiClient.convertToType(data['css'], 'String');
+      }
+      if (data.hasOwnProperty('metadata')) {
+        obj['metadata'] = ApiClient.convertToType(data['metadata'], Object);
       }
       if (data.hasOwnProperty('test')) {
         obj['test'] = ApiClient.convertToType(data['test'], 'Boolean');
@@ -77,23 +78,24 @@
       if (data.hasOwnProperty('data')) {
         obj['data'] = ApiClient.convertToType(data['data'], Object);
       }
+      if (data.hasOwnProperty('template_id')) {
+        obj['template_id'] = ApiClient.convertToType(data['template_id'], 'String');
+      }
       if (data.hasOwnProperty('html')) {
         obj['html'] = ApiClient.convertToType(data['html'], 'String');
-      }
-      if (data.hasOwnProperty('css')) {
-        obj['css'] = ApiClient.convertToType(data['css'], 'String');
-      }
-      if (data.hasOwnProperty('metadata')) {
-        obj['metadata'] = ApiClient.convertToType(data['metadata'], Object);
       }
     }
     return obj;
   }
 
   /**
-   * @member {String} template_id
+   * @member {String} css
    */
-  exports.prototype['template_id'] = undefined;
+  exports.prototype['css'] = undefined;
+  /**
+   * @member {Object} metadata
+   */
+  exports.prototype['metadata'] = undefined;
   /**
    * @member {Boolean} test
    */
@@ -103,17 +105,13 @@
    */
   exports.prototype['data'] = undefined;
   /**
+   * @member {String} template_id
+   */
+  exports.prototype['template_id'] = undefined;
+  /**
    * @member {String} html
    */
   exports.prototype['html'] = undefined;
-  /**
-   * @member {String} css
-   */
-  exports.prototype['css'] = undefined;
-  /**
-   * @member {Object} metadata
-   */
-  exports.prototype['metadata'] = undefined;
 
 
 

@@ -25,7 +25,7 @@
     if (!root.FormAPI) {
       root.FormAPI = {};
     }
-    root.FormAPI.Error = factory(root.FormAPI.ApiClient);
+    root.FormAPI.CustomFile = factory(root.FormAPI.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -34,67 +34,53 @@
 
 
   /**
-   * The Error model module.
-   * @module model/Error
+   * The CustomFile model module.
+   * @module model/CustomFile
    * @version 2.6.0
    */
 
   /**
-   * Constructs a new <code>Error</code>.
-   * @alias module:model/Error
+   * Constructs a new <code>CustomFile</code>.
+   * @alias module:model/CustomFile
    * @class
-   * @param status {module:model/Error.StatusEnum} 
-   * @param error {String} 
    */
-  var exports = function(status, error) {
+  var exports = function() {
     var _this = this;
 
-    _this['status'] = status;
-    _this['error'] = error;
+
+
   };
 
   /**
-   * Constructs a <code>Error</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>CustomFile</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/Error} obj Optional instance to populate.
-   * @return {module:model/Error} The populated <code>Error</code> instance.
+   * @param {module:model/CustomFile} obj Optional instance to populate.
+   * @return {module:model/CustomFile} The populated <code>CustomFile</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('status')) {
-        obj['status'] = ApiClient.convertToType(data['status'], 'String');
+      if (data.hasOwnProperty('id')) {
+        obj['id'] = ApiClient.convertToType(data['id'], 'String');
       }
-      if (data.hasOwnProperty('error')) {
-        obj['error'] = ApiClient.convertToType(data['error'], 'String');
+      if (data.hasOwnProperty('url')) {
+        obj['url'] = ApiClient.convertToType(data['url'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * @member {module:model/Error.StatusEnum} status
+   * @member {String} id
    */
-  exports.prototype['status'] = undefined;
+  exports.prototype['id'] = undefined;
   /**
-   * @member {String} error
+   * @member {String} url
    */
-  exports.prototype['error'] = undefined;
+  exports.prototype['url'] = undefined;
 
-
-  /**
-   * Allowed values for the <code>status</code> property.
-   * @enum {String}
-   * @readonly
-   */
-  exports.StatusEnum = {
-    /**
-     * value: "error"
-     * @const
-     */
-    "error": "error"  };
 
 
   return exports;

@@ -16,32 +16,32 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/CreateSubmissionDataRequestData'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./CreateSubmissionDataRequestData'));
   } else {
     // Browser globals (root is window)
     if (!root.FormAPI) {
       root.FormAPI = {};
     }
-    root.FormAPI.CreateSubmissionDataBatchV1 = factory(root.FormAPI.ApiClient);
+    root.FormAPI.SubmissionData = factory(root.FormAPI.ApiClient, root.FormAPI.CreateSubmissionDataRequestData);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, CreateSubmissionDataRequestData) {
   'use strict';
 
 
 
 
   /**
-   * The CreateSubmissionDataBatchV1 model module.
-   * @module model/CreateSubmissionDataBatchV1
-   * @version 2.5.0
+   * The SubmissionData model module.
+   * @module model/SubmissionData
+   * @version 2.6.0
    */
 
   /**
-   * Constructs a new <code>CreateSubmissionDataBatchV1</code>.
-   * @alias module:model/CreateSubmissionDataBatchV1
+   * Constructs a new <code>SubmissionData</code>.
+   * @alias module:model/SubmissionData
    * @class
    * @param data {Object} 
    */
@@ -53,14 +53,15 @@
 
 
 
+
   };
 
   /**
-   * Constructs a <code>CreateSubmissionDataBatchV1</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>SubmissionData</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/CreateSubmissionDataBatchV1} obj Optional instance to populate.
-   * @return {module:model/CreateSubmissionDataBatchV1} The populated <code>CreateSubmissionDataBatchV1</code> instance.
+   * @param {module:model/SubmissionData} obj Optional instance to populate.
+   * @return {module:model/SubmissionData} The populated <code>SubmissionData</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -80,6 +81,9 @@
       }
       if (data.hasOwnProperty('metadata')) {
         obj['metadata'] = ApiClient.convertToType(data['metadata'], Object);
+      }
+      if (data.hasOwnProperty('data_requests')) {
+        obj['data_requests'] = ApiClient.convertToType(data['data_requests'], [CreateSubmissionDataRequestData]);
       }
     }
     return obj;
@@ -105,6 +109,10 @@
    * @member {Object} metadata
    */
   exports.prototype['metadata'] = undefined;
+  /**
+   * @member {Array.<module:model/CreateSubmissionDataRequestData>} data_requests
+   */
+  exports.prototype['data_requests'] = undefined;
 
 
 

@@ -1,3 +1,6 @@
+### 2.6.0 [December 23, 2018]
+* Added CustomFiles, and combinePdf call to support many different types of source PDFs. Renamed a few models
+
 ### 2.5.0 [December 18, 2018]
 * Updated API host to api.formapi.io
 

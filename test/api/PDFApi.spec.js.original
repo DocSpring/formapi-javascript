@@ -70,10 +70,30 @@
         done();
       });
     });
+    describe('combinePdfs', function() {
+      it('should call combinePdfs successfully', function(done) {
+        //uncomment below and update the code to test combinePdfs
+        //instance.combinePdfs(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('combineSubmissions', function() {
       it('should call combineSubmissions successfully', function(done) {
         //uncomment below and update the code to test combineSubmissions
         //instance.combineSubmissions(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('createCustomFileFromUpload', function() {
+      it('should call createCustomFileFromUpload successfully', function(done) {
+        //uncomment below and update the code to test createCustomFileFromUpload
+        //instance.createCustomFileFromUpload(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -94,6 +114,16 @@
       it('should call createTemplate successfully', function(done) {
         //uncomment below and update the code to test createTemplate
         //instance.createTemplate(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('createTemplateFromUpload', function() {
+      it('should call createTemplateFromUpload successfully', function(done) {
+        //uncomment below and update the code to test createTemplateFromUpload
+        //instance.createTemplateFromUpload(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -144,6 +174,16 @@
       it('should call getDataRequest successfully', function(done) {
         //uncomment below and update the code to test getDataRequest
         //instance.getDataRequest(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getPresignUrl', function() {
+      it('should call getPresignUrl successfully', function(done) {
+        //uncomment below and update the code to test getPresignUrl
+        //instance.getPresignUrl(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

@@ -1,12 +1,12 @@
-# FormAPI.CreateSubmissionDataBatchV1
+# FormAPI.CombinePdfsData
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **test** | **Boolean** |  | [optional] 
-**data** | **Object** |  | 
-**html** | **String** |  | [optional] 
-**css** | **String** |  | [optional] 
+**sourcePdfs** | **[Object]** |  | 
 **metadata** | **Object** |  | [optional] 
+**expiresIn** | **Number** |  | [optional] 
+**deleteCustomFiles** | **Boolean** |  | [optional] 
 
 

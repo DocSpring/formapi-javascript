@@ -16,18 +16,18 @@
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['api/PDFApi', 'ApiClient', 'model/AuthenticationError', 'model/AuthenticationSuccessResponse', 'model/CombinedSubmission', 'model/CombinedSubmissionData', 'model/CreateCombinedSubmissionResponse', 'model/CreateSubmissionData', 'model/CreateSubmissionResponse', 'model/Error', 'model/InvalidRequest', 'model/Submission', 'model/Template'], factory);
+    define(['api/PDFApi', 'ApiClient', 'model/AuthenticationError', 'model/AuthenticationSuccessResponse', 'model/CombinedSubmission', 'model/CombinedSubmissionData', 'model/CreateCombinedSubmissionResponse', 'model/SubmissionData', 'model/CreateSubmissionResponse', 'model/Error', 'model/InvalidRequest', 'model/Submission', 'model/Template'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./PDFApi'), require('../ApiClient'), require('../model/AuthenticationError'), require('../model/AuthenticationSuccessResponse'), require('../model/CombinedSubmission'), require('../model/CombinedSubmissionData'), require('../model/CreateCombinedSubmissionResponse'), require('../model/CreateSubmissionData'), require('../model/CreateSubmissionResponse'), require('../model/Error'), require('../model/InvalidRequest'), require('../model/Submission'), require('../model/Template'));
+    module.exports = factory(require('./PDFApi'), require('../ApiClient'), require('../model/AuthenticationError'), require('../model/AuthenticationSuccessResponse'), require('../model/CombinedSubmission'), require('../model/CombinedSubmissionData'), require('../model/CreateCombinedSubmissionResponse'), require('../model/SubmissionData'), require('../model/CreateSubmissionResponse'), require('../model/Error'), require('../model/InvalidRequest'), require('../model/Submission'), require('../model/Template'));
   } else {
     // Browser globals (root is window)
     if (!root.FormAPI) {
       root.FormAPI = {};
     }
-    root.FormAPI.PDFApi = factory(root.FormAPI.PDFApi, root.FormAPI.ApiClient, root.FormAPI.AuthenticationError, root.FormAPI.AuthenticationSuccessResponse, root.FormAPI.CombinedSubmission, root.FormAPI.CombinedSubmissionData, root.FormAPI.CreateCombinedSubmissionResponse, root.FormAPI.CreateSubmissionData, root.FormAPI.CreateSubmissionResponse, root.FormAPI.Error, root.FormAPI.InvalidRequest, root.FormAPI.Submission, root.FormAPI.Template);
+    root.FormAPI.PDFApi = factory(root.FormAPI.PDFApi, root.FormAPI.ApiClient, root.FormAPI.AuthenticationError, root.FormAPI.AuthenticationSuccessResponse, root.FormAPI.CombinedSubmission, root.FormAPI.CombinedSubmissionData, root.FormAPI.CreateCombinedSubmissionResponse, root.FormAPI.SubmissionData, root.FormAPI.CreateSubmissionResponse, root.FormAPI.Error, root.FormAPI.InvalidRequest, root.FormAPI.Submission, root.FormAPI.Template);
   }
-}(this, function (PDFApi, ApiClient, AuthenticationError, AuthenticationSuccessResponse, CombinedSubmission, CombinedSubmissionData, CreateCombinedSubmissionResponse, CreateSubmissionData, CreateSubmissionResponse, Error, InvalidRequest, Submission, Template) {
+}(this, function (PDFApi, ApiClient, AuthenticationError, AuthenticationSuccessResponse, CombinedSubmission, CombinedSubmissionData, CreateCombinedSubmissionResponse, SubmissionData, CreateSubmissionResponse, Error, InvalidRequest, Submission, Template) {
   'use strict';
   /**
    * PDF service.
@@ -221,18 +221,18 @@
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['api/PDFApi', 'ApiClient', 'model/AuthenticationError', 'model/AuthenticationSuccessResponse', 'model/CombinedSubmission', 'model/CombinedSubmissionData', 'model/CreateCombinedSubmissionResponse', 'model/CreateSubmissionData', 'model/CreateSubmissionResponse', 'model/Error', 'model/InvalidRequest', 'model/Submission', 'model/Template'], factory);
+    define(['api/PDFApi', 'ApiClient', 'model/AuthenticationError', 'model/AuthenticationSuccessResponse', 'model/CombinedSubmission', 'model/CombinedSubmissionData', 'model/CreateCombinedSubmissionResponse', 'model/SubmissionData', 'model/CreateSubmissionResponse', 'model/Error', 'model/InvalidRequest', 'model/Submission', 'model/Template'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./PDFApi'), require('../ApiClient'), require('../model/AuthenticationError'), require('../model/AuthenticationSuccessResponse'), require('../model/CombinedSubmission'), require('../model/CombinedSubmissionData'), require('../model/CreateCombinedSubmissionResponse'), require('../model/CreateSubmissionData'), require('../model/CreateSubmissionResponse'), require('../model/Error'), require('../model/InvalidRequest'), require('../model/Submission'), require('../model/Template'));
+    module.exports = factory(require('./PDFApi'), require('../ApiClient'), require('../model/AuthenticationError'), require('../model/AuthenticationSuccessResponse'), require('../model/CombinedSubmission'), require('../model/CombinedSubmissionData'), require('../model/CreateCombinedSubmissionResponse'), require('../model/SubmissionData'), require('../model/CreateSubmissionResponse'), require('../model/Error'), require('../model/InvalidRequest'), require('../model/Submission'), require('../model/Template'));
   } else {
     // Browser globals (root is window)
     if (!root.FormAPI) {
       root.FormAPI = {};
     }
-    root.FormAPI.PDFApi = factory(root.FormAPI.PDFApi, root.FormAPI.ApiClient, root.FormAPI.AuthenticationError, root.FormAPI.AuthenticationSuccessResponse, root.FormAPI.CombinedSubmission, root.FormAPI.CombinedSubmissionData, root.FormAPI.CreateCombinedSubmissionResponse, root.FormAPI.CreateSubmissionData, root.FormAPI.CreateSubmissionResponse, root.FormAPI.Error, root.FormAPI.InvalidRequest, root.FormAPI.Submission, root.FormAPI.Template);
+    root.FormAPI.PDFApi = factory(root.FormAPI.PDFApi, root.FormAPI.ApiClient, root.FormAPI.AuthenticationError, root.FormAPI.AuthenticationSuccessResponse, root.FormAPI.CombinedSubmission, root.FormAPI.CombinedSubmissionData, root.FormAPI.CreateCombinedSubmissionResponse, root.FormAPI.SubmissionData, root.FormAPI.CreateSubmissionResponse, root.FormAPI.Error, root.FormAPI.InvalidRequest, root.FormAPI.Submission, root.FormAPI.Template);
   }
-}(this, function (PDFApi, ApiClient, AuthenticationError, AuthenticationSuccessResponse, CombinedSubmission, CombinedSubmissionData, CreateCombinedSubmissionResponse, CreateSubmissionData, CreateSubmissionResponse, Error, InvalidRequest, Submission, Template) {
+}(this, function (PDFApi, ApiClient, AuthenticationError, AuthenticationSuccessResponse, CombinedSubmission, CombinedSubmissionData, CreateCombinedSubmissionResponse, SubmissionData, CreateSubmissionResponse, Error, InvalidRequest, Submission, Template) {
   'use strict';
   /**
    * PDF service.

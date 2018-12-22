@@ -25,7 +25,7 @@
     if (!root.FormAPI) {
       root.FormAPI = {};
     }
-    root.FormAPI.CombinedSubmissionData = factory(root.FormAPI.ApiClient);
+    root.FormAPI.CombinePdfsData = factory(root.FormAPI.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -34,32 +34,33 @@
 
 
   /**
-   * The CombinedSubmissionData model module.
-   * @module model/CombinedSubmissionData
+   * The CombinePdfsData model module.
+   * @module model/CombinePdfsData
    * @version 2.6.0
    */
 
   /**
-   * Constructs a new <code>CombinedSubmissionData</code>.
-   * @alias module:model/CombinedSubmissionData
+   * Constructs a new <code>CombinePdfsData</code>.
+   * @alias module:model/CombinePdfsData
    * @class
-   * @param submissionIds {Array.<String>} 
+   * @param sourcePdfs {Array.<Object>} 
    */
-  var exports = function(submissionIds) {
+  var exports = function(sourcePdfs) {
     var _this = this;
 
 
-    _this['submission_ids'] = submissionIds;
+    _this['source_pdfs'] = sourcePdfs;
+
 
 
   };
 
   /**
-   * Constructs a <code>CombinedSubmissionData</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>CombinePdfsData</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/CombinedSubmissionData} obj Optional instance to populate.
-   * @return {module:model/CombinedSubmissionData} The populated <code>CombinedSubmissionData</code> instance.
+   * @param {module:model/CombinePdfsData} obj Optional instance to populate.
+   * @return {module:model/CombinePdfsData} The populated <code>CombinePdfsData</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -68,14 +69,17 @@
       if (data.hasOwnProperty('test')) {
         obj['test'] = ApiClient.convertToType(data['test'], 'Boolean');
       }
-      if (data.hasOwnProperty('submission_ids')) {
-        obj['submission_ids'] = ApiClient.convertToType(data['submission_ids'], ['String']);
+      if (data.hasOwnProperty('source_pdfs')) {
+        obj['source_pdfs'] = ApiClient.convertToType(data['source_pdfs'], [Object]);
       }
       if (data.hasOwnProperty('metadata')) {
         obj['metadata'] = ApiClient.convertToType(data['metadata'], Object);
       }
       if (data.hasOwnProperty('expires_in')) {
         obj['expires_in'] = ApiClient.convertToType(data['expires_in'], 'Number');
+      }
+      if (data.hasOwnProperty('delete_custom_files')) {
+        obj['delete_custom_files'] = ApiClient.convertToType(data['delete_custom_files'], 'Boolean');
       }
     }
     return obj;
@@ -86,9 +90,9 @@
    */
   exports.prototype['test'] = undefined;
   /**
-   * @member {Array.<String>} submission_ids
+   * @member {Array.<Object>} source_pdfs
    */
-  exports.prototype['submission_ids'] = undefined;
+  exports.prototype['source_pdfs'] = undefined;
   /**
    * @member {Object} metadata
    */
@@ -97,6 +101,10 @@
    * @member {Number} expires_in
    */
   exports.prototype['expires_in'] = undefined;
+  /**
+   * @member {Boolean} delete_custom_files
+   */
+  exports.prototype['delete_custom_files'] = undefined;
 
 
 

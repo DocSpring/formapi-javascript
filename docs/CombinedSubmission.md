@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **metadata** | **Object** |  | [optional] 
 **expired** | **Boolean** |  | [optional] 
 **expiresAt** | **String** |  | [optional] 
+**sourcePdfs** | **[Object]** |  | [optional] 
 **downloadUrl** | **String** |  | [optional] 
 **submissionIds** | **[String]** |  | [optional] 
 **id** | **String** |  | [optional] 

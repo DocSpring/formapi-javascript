@@ -16,32 +16,32 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/CreateSubmissionDataRequestTokenResponseToken'], factory);
+    define(['ApiClient', 'model/CustomFile'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./CreateSubmissionDataRequestTokenResponseToken'));
+    module.exports = factory(require('../ApiClient'), require('./CustomFile'));
   } else {
     // Browser globals (root is window)
     if (!root.FormAPI) {
       root.FormAPI = {};
     }
-    root.FormAPI.CreateSubmissionDataRequestTokenResponse = factory(root.FormAPI.ApiClient, root.FormAPI.CreateSubmissionDataRequestTokenResponseToken);
+    root.FormAPI.CreateCustomFileResponse = factory(root.FormAPI.ApiClient, root.FormAPI.CustomFile);
   }
-}(this, function(ApiClient, CreateSubmissionDataRequestTokenResponseToken) {
+}(this, function(ApiClient, CustomFile) {
   'use strict';
 
 
 
 
   /**
-   * The CreateSubmissionDataRequestTokenResponse model module.
-   * @module model/CreateSubmissionDataRequestTokenResponse
+   * The CreateCustomFileResponse model module.
+   * @module model/CreateCustomFileResponse
    * @version 2.6.0
    */
 
   /**
-   * Constructs a new <code>CreateSubmissionDataRequestTokenResponse</code>.
-   * @alias module:model/CreateSubmissionDataRequestTokenResponse
+   * Constructs a new <code>CreateCustomFileResponse</code>.
+   * @alias module:model/CreateCustomFileResponse
    * @class
    */
   var exports = function() {
@@ -53,41 +53,41 @@
   };
 
   /**
-   * Constructs a <code>CreateSubmissionDataRequestTokenResponse</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>CreateCustomFileResponse</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/CreateSubmissionDataRequestTokenResponse} obj Optional instance to populate.
-   * @return {module:model/CreateSubmissionDataRequestTokenResponse} The populated <code>CreateSubmissionDataRequestTokenResponse</code> instance.
+   * @param {module:model/CreateCustomFileResponse} obj Optional instance to populate.
+   * @return {module:model/CreateCustomFileResponse} The populated <code>CreateCustomFileResponse</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('custom_file')) {
+        obj['custom_file'] = CustomFile.constructFromObject(data['custom_file']);
+      }
       if (data.hasOwnProperty('errors')) {
         obj['errors'] = ApiClient.convertToType(data['errors'], ['String']);
       }
       if (data.hasOwnProperty('status')) {
         obj['status'] = ApiClient.convertToType(data['status'], 'String');
       }
-      if (data.hasOwnProperty('token')) {
-        obj['token'] = CreateSubmissionDataRequestTokenResponseToken.constructFromObject(data['token']);
-      }
     }
     return obj;
   }
 
   /**
+   * @member {module:model/CustomFile} custom_file
+   */
+  exports.prototype['custom_file'] = undefined;
+  /**
    * @member {Array.<String>} errors
    */
   exports.prototype['errors'] = undefined;
   /**
-   * @member {module:model/CreateSubmissionDataRequestTokenResponse.StatusEnum} status
+   * @member {module:model/CreateCustomFileResponse.StatusEnum} status
    */
   exports.prototype['status'] = undefined;
-  /**
-   * @member {module:model/CreateSubmissionDataRequestTokenResponseToken} token
-   */
-  exports.prototype['token'] = undefined;
 
 
   /**

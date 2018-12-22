@@ -1,11 +1,13 @@
-# FormAPI.SubmissionBatchData
+# FormAPI.SubmissionDataBatchRequest
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**css** | **String** |  | [optional] 
 **metadata** | **Object** |  | [optional] 
 **test** | **Boolean** |  | [optional] 
+**data** | **Object** |  | [optional] 
 **templateId** | **String** |  | [optional] 
-**submissions** | [**[SubmissionDataBatchRequest]**](SubmissionDataBatchRequest.md) |  | 
+**html** | **String** |  | [optional] 
 
 

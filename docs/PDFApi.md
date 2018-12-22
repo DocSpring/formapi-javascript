@@ -6,14 +6,18 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**batchGeneratePdfV1**](PDFApi.md#batchGeneratePdfV1) | **POST** /templates/{template_id}/submissions/batch | Generates multiple PDFs
 [**batchGeneratePdfs**](PDFApi.md#batchGeneratePdfs) | **POST** /submissions/batches | Generates multiple PDFs
+[**combinePdfs**](PDFApi.md#combinePdfs) | **POST** /combined_submissions?v&#x3D;2 | Merge submission PDFs, template PDFs, or custom files
 [**combineSubmissions**](PDFApi.md#combineSubmissions) | **POST** /combined_submissions | Merge generated PDFs together
+[**createCustomFileFromUpload**](PDFApi.md#createCustomFileFromUpload) | **POST** /custom_files | Create a new custom file from a cached presign upload
 [**createDataRequestToken**](PDFApi.md#createDataRequestToken) | **POST** /data_requests/{data_request_id}/tokens | Creates a new data request token for form authentication
-[**createTemplate**](PDFApi.md#createTemplate) | **POST** /templates | Upload a new PDF template
+[**createTemplate**](PDFApi.md#createTemplate) | **POST** /templates | Upload a new PDF template with a file upload
+[**createTemplateFromUpload**](PDFApi.md#createTemplateFromUpload) | **POST** /templates?v&#x3D;2 | Create a new PDF template from a cached presign upload
 [**expireCombinedSubmission**](PDFApi.md#expireCombinedSubmission) | **DELETE** /combined_submissions/{combined_submission_id} | Expire a combined submission
 [**expireSubmission**](PDFApi.md#expireSubmission) | **DELETE** /submissions/{submission_id} | Expire a PDF submission
 [**generatePDF**](PDFApi.md#generatePDF) | **POST** /templates/{template_id}/submissions | Generates a new PDF
 [**getCombinedSubmission**](PDFApi.md#getCombinedSubmission) | **GET** /combined_submissions/{combined_submission_id} | Check the status of a combined submission (merged PDFs)
 [**getDataRequest**](PDFApi.md#getDataRequest) | **GET** /data_requests/{data_request_id} | Look up a submission data request
+[**getPresignUrl**](PDFApi.md#getPresignUrl) | **GET** /uploads/presign | Get a presigned URL so that you can upload a file to our AWS S3 bucket
 [**getSubmission**](PDFApi.md#getSubmission) | **GET** /submissions/{submission_id} | Check the status of a PDF
 [**getSubmissionBatch**](PDFApi.md#getSubmissionBatch) | **GET** /submissions/batches/{submission_batch_id} | Check the status of a submission batch job
 [**getTemplate**](PDFApi.md#getTemplate) | **GET** /templates/{template_id} | Check the status of an uploaded template
@@ -25,7 +29,7 @@ Method | HTTP request | Description
 
 <a name="batchGeneratePdfV1"></a>
 # **batchGeneratePdfV1**
-> [CreateSubmissionResponse] batchGeneratePdfV1(templateId, createSubmissionDataBatchV1)
+> [CreateSubmissionResponse] batchGeneratePdfV1(templateId, requestBody)
 
 Generates multiple PDFs
 
@@ -41,7 +45,7 @@ api_token_basic.password = 'YOUR PASSWORD';
 
 var apiInstance = new FormAPI.PDFApi();
 var templateId = tpl_000000000000000001; // String | 
-var createSubmissionDataBatchV1 = [new FormAPI.CreateSubmissionDataBatchV1()]; // [CreateSubmissionDataBatchV1] | 
+var requestBody = [null]; // [Object] | 
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -49,7 +53,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.batchGeneratePdfV1(templateId, createSubmissionDataBatchV1, callback);
+apiInstance.batchGeneratePdfV1(templateId, requestBody, callback);
 ```
 
 ### Parameters
@@ -57,7 +61,7 @@ apiInstance.batchGeneratePdfV1(templateId, createSubmissionDataBatchV1, callback
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **templateId** | **String**|  | 
- **createSubmissionDataBatchV1** | [**[CreateSubmissionDataBatchV1]**](Array.md)|  | 
+ **requestBody** | [**[Object]**](Array.md)|  | 
 
 ### Return type
 
@@ -119,6 +123,53 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="combinePdfs"></a>
+# **combinePdfs**
+> CreateCombinedSubmissionResponse combinePdfs(combinePdfsData)
+
+Merge submission PDFs, template PDFs, or custom files
+
+### Example
+```javascript
+var FormAPI = require('formapi');
+var defaultClient = FormAPI.ApiClient.instance;
+
+// Configure HTTP basic authorization: api_token_basic
+var api_token_basic = defaultClient.authentications['api_token_basic'];
+api_token_basic.username = 'YOUR USERNAME';
+api_token_basic.password = 'YOUR PASSWORD';
+
+var apiInstance = new FormAPI.PDFApi();
+var combinePdfsData = new FormAPI.CombinePdfsData(); // CombinePdfsData | 
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.combinePdfs(combinePdfsData, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **combinePdfsData** | [**CombinePdfsData**](CombinePdfsData.md)|  | 
+
+### Return type
+
+[**CreateCombinedSubmissionResponse**](CreateCombinedSubmissionResponse.md)
+
+### Authorization
+
+[api_token_basic](../README.md#api_token_basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="combineSubmissions"></a>
 # **combineSubmissions**
 > CreateCombinedSubmissionResponse combineSubmissions(combinedSubmissionData)
@@ -156,6 +207,53 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CreateCombinedSubmissionResponse**](CreateCombinedSubmissionResponse.md)
+
+### Authorization
+
+[api_token_basic](../README.md#api_token_basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="createCustomFileFromUpload"></a>
+# **createCustomFileFromUpload**
+> CreateCustomFileResponse createCustomFileFromUpload(createCustomFileData)
+
+Create a new custom file from a cached presign upload
+
+### Example
+```javascript
+var FormAPI = require('formapi');
+var defaultClient = FormAPI.ApiClient.instance;
+
+// Configure HTTP basic authorization: api_token_basic
+var api_token_basic = defaultClient.authentications['api_token_basic'];
+api_token_basic.username = 'YOUR USERNAME';
+api_token_basic.password = 'YOUR PASSWORD';
+
+var apiInstance = new FormAPI.PDFApi();
+var createCustomFileData = new FormAPI.CreateCustomFileData(); // CreateCustomFileData | 
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.createCustomFileFromUpload(createCustomFileData, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createCustomFileData** | [**CreateCustomFileData**](CreateCustomFileData.md)|  | 
+
+### Return type
+
+[**CreateCustomFileResponse**](CreateCustomFileResponse.md)
 
 ### Authorization
 
@@ -217,7 +315,7 @@ Name | Type | Description  | Notes
 # **createTemplate**
 > PendingTemplate createTemplate(templateDocument, templateName)
 
-Upload a new PDF template
+Upload a new PDF template with a file upload
 
 ### Example
 ```javascript
@@ -260,6 +358,53 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+<a name="createTemplateFromUpload"></a>
+# **createTemplateFromUpload**
+> PendingTemplate createTemplateFromUpload(createTemplateData)
+
+Create a new PDF template from a cached presign upload
+
+### Example
+```javascript
+var FormAPI = require('formapi');
+var defaultClient = FormAPI.ApiClient.instance;
+
+// Configure HTTP basic authorization: api_token_basic
+var api_token_basic = defaultClient.authentications['api_token_basic'];
+api_token_basic.username = 'YOUR USERNAME';
+api_token_basic.password = 'YOUR PASSWORD';
+
+var apiInstance = new FormAPI.PDFApi();
+var createTemplateData = new FormAPI.CreateTemplateData(); // CreateTemplateData | 
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.createTemplateFromUpload(createTemplateData, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createTemplateData** | [**CreateTemplateData**](CreateTemplateData.md)|  | 
+
+### Return type
+
+[**PendingTemplate**](PendingTemplate.md)
+
+### Authorization
+
+[api_token_basic](../README.md#api_token_basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="expireCombinedSubmission"></a>
@@ -358,7 +503,7 @@ Name | Type | Description  | Notes
 
 <a name="generatePDF"></a>
 # **generatePDF**
-> CreateSubmissionResponse generatePDF(templateId, createSubmissionData)
+> CreateSubmissionResponse generatePDF(templateId, submissionData)
 
 Generates a new PDF
 
@@ -374,7 +519,7 @@ api_token_basic.password = 'YOUR PASSWORD';
 
 var apiInstance = new FormAPI.PDFApi();
 var templateId = tpl_000000000000000001; // String | 
-var createSubmissionData = new FormAPI.CreateSubmissionData(); // CreateSubmissionData | 
+var submissionData = new FormAPI.SubmissionData(); // SubmissionData | 
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -382,7 +527,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.generatePDF(templateId, createSubmissionData, callback);
+apiInstance.generatePDF(templateId, submissionData, callback);
 ```
 
 ### Parameters
@@ -390,7 +535,7 @@ apiInstance.generatePDF(templateId, createSubmissionData, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **templateId** | **String**|  | 
- **createSubmissionData** | [**CreateSubmissionData**](CreateSubmissionData.md)|  | 
+ **submissionData** | [**SubmissionData**](SubmissionData.md)|  | 
 
 ### Return type
 
@@ -499,6 +644,49 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="getPresignUrl"></a>
+# **getPresignUrl**
+> {String: Object} getPresignUrl()
+
+Get a presigned URL so that you can upload a file to our AWS S3 bucket
+
+### Example
+```javascript
+var FormAPI = require('formapi');
+var defaultClient = FormAPI.ApiClient.instance;
+
+// Configure HTTP basic authorization: api_token_basic
+var api_token_basic = defaultClient.authentications['api_token_basic'];
+api_token_basic.username = 'YOUR USERNAME';
+api_token_basic.password = 'YOUR PASSWORD';
+
+var apiInstance = new FormAPI.PDFApi();
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.getPresignUrl(callback);
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+**{String: Object}**
+
+### Authorization
+
+[api_token_basic](../README.md#api_token_basic)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="getSubmission"></a>
 # **getSubmission**
 > Submission getSubmission(submissionId)
@@ -563,7 +751,7 @@ api_token_basic.username = 'YOUR USERNAME';
 api_token_basic.password = 'YOUR PASSWORD';
 
 var apiInstance = new FormAPI.PDFApi();
-var submissionBatchId = sba_000000000000000001; // String | 
+var submissionBatchId = sbb_000000000000000001; // String | 
 var opts = {
   'includeSubmissions': true // Boolean | 
 };

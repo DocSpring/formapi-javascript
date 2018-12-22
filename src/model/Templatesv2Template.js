@@ -16,32 +16,32 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/Templatesv2TemplateDocument'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./Templatesv2TemplateDocument'));
   } else {
     // Browser globals (root is window)
     if (!root.FormAPI) {
       root.FormAPI = {};
     }
-    root.FormAPI.PendingTemplate = factory(root.FormAPI.ApiClient);
+    root.FormAPI.Templatesv2Template = factory(root.FormAPI.ApiClient, root.FormAPI.Templatesv2TemplateDocument);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, Templatesv2TemplateDocument) {
   'use strict';
 
 
 
 
   /**
-   * The PendingTemplate model module.
-   * @module model/PendingTemplate
+   * The Templatesv2Template model module.
+   * @module model/Templatesv2Template
    * @version 2.6.0
    */
 
   /**
-   * Constructs a new <code>PendingTemplate</code>.
-   * @alias module:model/PendingTemplate
+   * Constructs a new <code>Templatesv2Template</code>.
+   * @alias module:model/Templatesv2Template
    * @class
    */
   var exports = function() {
@@ -59,15 +59,14 @@
 
 
 
-
   };
 
   /**
-   * Constructs a <code>PendingTemplate</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>Templatesv2Template</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/PendingTemplate} obj Optional instance to populate.
-   * @return {module:model/PendingTemplate} The populated <code>PendingTemplate</code> instance.
+   * @param {module:model/Templatesv2Template} obj Optional instance to populate.
+   * @return {module:model/Templatesv2Template} The populated <code>Templatesv2Template</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -76,8 +75,14 @@
       if (data.hasOwnProperty('expiration_interval')) {
         obj['expiration_interval'] = ApiClient.convertToType(data['expiration_interval'], 'String');
       }
+      if (data.hasOwnProperty('public_web_form')) {
+        obj['public_web_form'] = ApiClient.convertToType(data['public_web_form'], 'Boolean');
+      }
       if (data.hasOwnProperty('webhook_url')) {
         obj['webhook_url'] = ApiClient.convertToType(data['webhook_url'], 'String');
+      }
+      if (data.hasOwnProperty('expire_submissions')) {
+        obj['expire_submissions'] = ApiClient.convertToType(data['expire_submissions'], 'Boolean');
       }
       if (data.hasOwnProperty('expire_after')) {
         obj['expire_after'] = ApiClient.convertToType(data['expire_after'], 'Number');
@@ -85,45 +90,44 @@
       if (data.hasOwnProperty('allow_additional_properties')) {
         obj['allow_additional_properties'] = ApiClient.convertToType(data['allow_additional_properties'], 'Boolean');
       }
+      if (data.hasOwnProperty('document')) {
+        obj['document'] = Templatesv2TemplateDocument.constructFromObject(data['document']);
+      }
+      if (data.hasOwnProperty('name')) {
+        obj['name'] = ApiClient.convertToType(data['name'], 'String');
+      }
       if (data.hasOwnProperty('public_submissions')) {
         obj['public_submissions'] = ApiClient.convertToType(data['public_submissions'], 'Boolean');
       }
       if (data.hasOwnProperty('slack_webhook_url')) {
         obj['slack_webhook_url'] = ApiClient.convertToType(data['slack_webhook_url'], 'String');
       }
-      if (data.hasOwnProperty('blockchain_timestamp_verification')) {
-        obj['blockchain_timestamp_verification'] = ApiClient.convertToType(data['blockchain_timestamp_verification'], 'Boolean');
-      }
-      if (data.hasOwnProperty('public_web_form')) {
-        obj['public_web_form'] = ApiClient.convertToType(data['public_web_form'], 'Boolean');
-      }
-      if (data.hasOwnProperty('expire_submissions')) {
-        obj['expire_submissions'] = ApiClient.convertToType(data['expire_submissions'], 'Boolean');
-      }
-      if (data.hasOwnProperty('name')) {
-        obj['name'] = ApiClient.convertToType(data['name'], 'String');
-      }
-      if (data.hasOwnProperty('template_type')) {
-        obj['template_type'] = ApiClient.convertToType(data['template_type'], 'String');
-      }
-      if (data.hasOwnProperty('id')) {
-        obj['id'] = ApiClient.convertToType(data['id'], 'String');
-      }
       if (data.hasOwnProperty('redirect_url')) {
         obj['redirect_url'] = ApiClient.convertToType(data['redirect_url'], 'String');
+      }
+      if (data.hasOwnProperty('blockchain_timestamp_verification')) {
+        obj['blockchain_timestamp_verification'] = ApiClient.convertToType(data['blockchain_timestamp_verification'], 'Boolean');
       }
     }
     return obj;
   }
 
   /**
-   * @member {module:model/PendingTemplate.ExpirationIntervalEnum} expiration_interval
+   * @member {module:model/Templatesv2Template.ExpirationIntervalEnum} expiration_interval
    */
   exports.prototype['expiration_interval'] = undefined;
+  /**
+   * @member {Boolean} public_web_form
+   */
+  exports.prototype['public_web_form'] = undefined;
   /**
    * @member {String} webhook_url
    */
   exports.prototype['webhook_url'] = undefined;
+  /**
+   * @member {Boolean} expire_submissions
+   */
+  exports.prototype['expire_submissions'] = undefined;
   /**
    * @member {Number} expire_after
    */
@@ -133,6 +137,14 @@
    */
   exports.prototype['allow_additional_properties'] = undefined;
   /**
+   * @member {module:model/Templatesv2TemplateDocument} document
+   */
+  exports.prototype['document'] = undefined;
+  /**
+   * @member {String} name
+   */
+  exports.prototype['name'] = undefined;
+  /**
    * @member {Boolean} public_submissions
    */
   exports.prototype['public_submissions'] = undefined;
@@ -141,33 +153,13 @@
    */
   exports.prototype['slack_webhook_url'] = undefined;
   /**
-   * @member {Boolean} blockchain_timestamp_verification
-   */
-  exports.prototype['blockchain_timestamp_verification'] = undefined;
-  /**
-   * @member {Boolean} public_web_form
-   */
-  exports.prototype['public_web_form'] = undefined;
-  /**
-   * @member {Boolean} expire_submissions
-   */
-  exports.prototype['expire_submissions'] = undefined;
-  /**
-   * @member {String} name
-   */
-  exports.prototype['name'] = undefined;
-  /**
-   * @member {String} template_type
-   */
-  exports.prototype['template_type'] = undefined;
-  /**
-   * @member {String} id
-   */
-  exports.prototype['id'] = undefined;
-  /**
    * @member {String} redirect_url
    */
   exports.prototype['redirect_url'] = undefined;
+  /**
+   * @member {Boolean} blockchain_timestamp_verification
+   */
+  exports.prototype['blockchain_timestamp_verification'] = undefined;
 
 
   /**

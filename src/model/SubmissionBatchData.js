@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/CreateSubmissionDataBatchRequest'], factory);
+    define(['ApiClient', 'model/SubmissionDataBatchRequest'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./CreateSubmissionDataBatchRequest'));
+    module.exports = factory(require('../ApiClient'), require('./SubmissionDataBatchRequest'));
   } else {
     // Browser globals (root is window)
     if (!root.FormAPI) {
       root.FormAPI = {};
     }
-    root.FormAPI.SubmissionBatchData = factory(root.FormAPI.ApiClient, root.FormAPI.CreateSubmissionDataBatchRequest);
+    root.FormAPI.SubmissionBatchData = factory(root.FormAPI.ApiClient, root.FormAPI.SubmissionDataBatchRequest);
   }
-}(this, function(ApiClient, CreateSubmissionDataBatchRequest) {
+}(this, function(ApiClient, SubmissionDataBatchRequest) {
   'use strict';
 
 
@@ -36,14 +36,14 @@
   /**
    * The SubmissionBatchData model module.
    * @module model/SubmissionBatchData
-   * @version 2.5.0
+   * @version 2.6.0
    */
 
   /**
    * Constructs a new <code>SubmissionBatchData</code>.
    * @alias module:model/SubmissionBatchData
    * @class
-   * @param submissions {Array.<module:model/CreateSubmissionDataBatchRequest>} 
+   * @param submissions {Array.<module:model/SubmissionDataBatchRequest>} 
    */
   var exports = function(submissions) {
     var _this = this;
@@ -75,7 +75,7 @@
         obj['template_id'] = ApiClient.convertToType(data['template_id'], 'String');
       }
       if (data.hasOwnProperty('submissions')) {
-        obj['submissions'] = ApiClient.convertToType(data['submissions'], [CreateSubmissionDataBatchRequest]);
+        obj['submissions'] = ApiClient.convertToType(data['submissions'], [SubmissionDataBatchRequest]);
       }
     }
     return obj;
@@ -94,7 +94,7 @@
    */
   exports.prototype['template_id'] = undefined;
   /**
-   * @member {Array.<module:model/CreateSubmissionDataBatchRequest>} submissions
+   * @member {Array.<module:model/SubmissionDataBatchRequest>} submissions
    */
   exports.prototype['submissions'] = undefined;
 

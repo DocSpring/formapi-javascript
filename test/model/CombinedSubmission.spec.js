@@ -74,6 +74,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property sourcePdfs (base name: "source_pdfs")', function() {
+      // uncomment below and update the code to test the property sourcePdfs
+      //var instance = new FormAPI.CombinedSubmission();
+      //expect(instance).to.be();
+    });
+
     it('should have the property downloadUrl (base name: "download_url")', function() {
       // uncomment below and update the code to test the property downloadUrl
       //var instance = new FormAPI.CombinedSubmission();

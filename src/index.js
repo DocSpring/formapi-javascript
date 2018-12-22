@@ -16,12 +16,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'api/Client', 'model/AuthenticationError', 'model/AuthenticationSuccessResponse', 'model/CombinedSubmission', 'model/CombinedSubmissionAction', 'model/CombinedSubmissionData', 'model/CreateCombinedSubmissionResponse', 'model/CreateSubmissionBatchResponse', 'model/CreateSubmissionBatchSubmissionsResponse', 'model/CreateSubmissionData', 'model/CreateSubmissionDataBatchRequest', 'model/CreateSubmissionDataBatchV1', 'model/CreateSubmissionDataRequestData', 'model/CreateSubmissionDataRequestTokenResponse', 'model/CreateSubmissionDataRequestTokenResponseToken', 'model/CreateSubmissionResponse', 'model/Error', 'model/InvalidRequest', 'model/PendingTemplate', 'model/Submission', 'model/SubmissionAction', 'model/SubmissionBatch', 'model/SubmissionBatchData', 'model/SubmissionDataRequest', 'model/Template', 'model/UpdateDataRequestResponse', 'model/UpdateSubmissionDataRequestData', 'api/PDFApi'], factory);
+    define(['ApiClient', 'api/Client', 'model/AuthenticationError', 'model/AuthenticationSuccessResponse', 'model/CombinePdfsData', 'model/CombinedSubmission', 'model/CombinedSubmissionAction', 'model/CombinedSubmissionData', 'model/CreateCombinedSubmissionResponse', 'model/CreateCustomFileData', 'model/CreateCustomFileResponse', 'model/CreateSubmissionBatchResponse', 'model/CreateSubmissionBatchSubmissionsResponse', 'model/CreateSubmissionDataRequestData', 'model/CreateSubmissionDataRequestTokenResponse', 'model/CreateSubmissionDataRequestTokenResponseToken', 'model/CreateSubmissionResponse', 'model/CreateTemplateData', 'model/CustomFile', 'model/Error', 'model/InvalidRequest', 'model/PendingTemplate', 'model/Submission', 'model/SubmissionAction', 'model/SubmissionBatch', 'model/SubmissionBatchData', 'model/SubmissionData', 'model/SubmissionDataBatchRequest', 'model/SubmissionDataRequest', 'model/Template', 'model/Templatesv2Template', 'model/Templatesv2TemplateDocument', 'model/Templatesv2TemplateDocumentMetadata', 'model/UpdateDataRequestResponse', 'model/UpdateSubmissionDataRequestData', 'api/PDFApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./api/Client'), require('./model/AuthenticationError'), require('./model/AuthenticationSuccessResponse'), require('./model/CombinedSubmission'), require('./model/CombinedSubmissionAction'), require('./model/CombinedSubmissionData'), require('./model/CreateCombinedSubmissionResponse'), require('./model/CreateSubmissionBatchResponse'), require('./model/CreateSubmissionBatchSubmissionsResponse'), require('./model/CreateSubmissionData'), require('./model/CreateSubmissionDataBatchRequest'), require('./model/CreateSubmissionDataBatchV1'), require('./model/CreateSubmissionDataRequestData'), require('./model/CreateSubmissionDataRequestTokenResponse'), require('./model/CreateSubmissionDataRequestTokenResponseToken'), require('./model/CreateSubmissionResponse'), require('./model/Error'), require('./model/InvalidRequest'), require('./model/PendingTemplate'), require('./model/Submission'), require('./model/SubmissionAction'), require('./model/SubmissionBatch'), require('./model/SubmissionBatchData'), require('./model/SubmissionDataRequest'), require('./model/Template'), require('./model/UpdateDataRequestResponse'), require('./model/UpdateSubmissionDataRequestData'), require('./api/PDFApi'));
+    module.exports = factory(require('./ApiClient'), require('./api/Client'), require('./model/AuthenticationError'), require('./model/AuthenticationSuccessResponse'), require('./model/CombinePdfsData'), require('./model/CombinedSubmission'), require('./model/CombinedSubmissionAction'), require('./model/CombinedSubmissionData'), require('./model/CreateCombinedSubmissionResponse'), require('./model/CreateCustomFileData'), require('./model/CreateCustomFileResponse'), require('./model/CreateSubmissionBatchResponse'), require('./model/CreateSubmissionBatchSubmissionsResponse'), require('./model/CreateSubmissionDataRequestData'), require('./model/CreateSubmissionDataRequestTokenResponse'), require('./model/CreateSubmissionDataRequestTokenResponseToken'), require('./model/CreateSubmissionResponse'), require('./model/CreateTemplateData'), require('./model/CustomFile'), require('./model/Error'), require('./model/InvalidRequest'), require('./model/PendingTemplate'), require('./model/Submission'), require('./model/SubmissionAction'), require('./model/SubmissionBatch'), require('./model/SubmissionBatchData'), require('./model/SubmissionData'), require('./model/SubmissionDataBatchRequest'), require('./model/SubmissionDataRequest'), require('./model/Template'), require('./model/Templatesv2Template'), require('./model/Templatesv2TemplateDocument'), require('./model/Templatesv2TemplateDocumentMetadata'), require('./model/UpdateDataRequestResponse'), require('./model/UpdateSubmissionDataRequestData'), require('./api/PDFApi'));
   }
-}(function(ApiClient, Client, AuthenticationError, AuthenticationSuccessResponse, CombinedSubmission, CombinedSubmissionAction, CombinedSubmissionData, CreateCombinedSubmissionResponse, CreateSubmissionBatchResponse, CreateSubmissionBatchSubmissionsResponse, CreateSubmissionData, CreateSubmissionDataBatchRequest, CreateSubmissionDataBatchV1, CreateSubmissionDataRequestData, CreateSubmissionDataRequestTokenResponse, CreateSubmissionDataRequestTokenResponseToken, CreateSubmissionResponse, Error, InvalidRequest, PendingTemplate, Submission, SubmissionAction, SubmissionBatch, SubmissionBatchData, SubmissionDataRequest, Template, UpdateDataRequestResponse, UpdateSubmissionDataRequestData, PDFApi) {
+}(function(ApiClient, Client, AuthenticationError, AuthenticationSuccessResponse, CombinePdfsData, CombinedSubmission, CombinedSubmissionAction, CombinedSubmissionData, CreateCombinedSubmissionResponse, CreateCustomFileData, CreateCustomFileResponse, CreateSubmissionBatchResponse, CreateSubmissionBatchSubmissionsResponse, CreateSubmissionDataRequestData, CreateSubmissionDataRequestTokenResponse, CreateSubmissionDataRequestTokenResponseToken, CreateSubmissionResponse, CreateTemplateData, CustomFile, Error, InvalidRequest, PendingTemplate, Submission, SubmissionAction, SubmissionBatch, SubmissionBatchData, SubmissionData, SubmissionDataBatchRequest, SubmissionDataRequest, Template, Templatesv2Template, Templatesv2TemplateDocument, Templatesv2TemplateDocumentMetadata, UpdateDataRequestResponse, UpdateSubmissionDataRequestData, PDFApi) {
   'use strict';
 
   /**
@@ -53,7 +53,7 @@
    * </pre>
    * </p>
    * @module index
-   * @version 2.5.0
+   * @version 2.6.0
    */
   var exports = {
     /**
@@ -79,6 +79,11 @@
      */
     AuthenticationSuccessResponse: AuthenticationSuccessResponse,
     /**
+     * The CombinePdfsData model constructor.
+     * @property {module:model/CombinePdfsData}
+     */
+    CombinePdfsData: CombinePdfsData,
+    /**
      * The CombinedSubmission model constructor.
      * @property {module:model/CombinedSubmission}
      */
@@ -99,6 +104,16 @@
      */
     CreateCombinedSubmissionResponse: CreateCombinedSubmissionResponse,
     /**
+     * The CreateCustomFileData model constructor.
+     * @property {module:model/CreateCustomFileData}
+     */
+    CreateCustomFileData: CreateCustomFileData,
+    /**
+     * The CreateCustomFileResponse model constructor.
+     * @property {module:model/CreateCustomFileResponse}
+     */
+    CreateCustomFileResponse: CreateCustomFileResponse,
+    /**
      * The CreateSubmissionBatchResponse model constructor.
      * @property {module:model/CreateSubmissionBatchResponse}
      */
@@ -108,21 +123,6 @@
      * @property {module:model/CreateSubmissionBatchSubmissionsResponse}
      */
     CreateSubmissionBatchSubmissionsResponse: CreateSubmissionBatchSubmissionsResponse,
-    /**
-     * The CreateSubmissionData model constructor.
-     * @property {module:model/CreateSubmissionData}
-     */
-    CreateSubmissionData: CreateSubmissionData,
-    /**
-     * The CreateSubmissionDataBatchRequest model constructor.
-     * @property {module:model/CreateSubmissionDataBatchRequest}
-     */
-    CreateSubmissionDataBatchRequest: CreateSubmissionDataBatchRequest,
-    /**
-     * The CreateSubmissionDataBatchV1 model constructor.
-     * @property {module:model/CreateSubmissionDataBatchV1}
-     */
-    CreateSubmissionDataBatchV1: CreateSubmissionDataBatchV1,
     /**
      * The CreateSubmissionDataRequestData model constructor.
      * @property {module:model/CreateSubmissionDataRequestData}
@@ -143,6 +143,16 @@
      * @property {module:model/CreateSubmissionResponse}
      */
     CreateSubmissionResponse: CreateSubmissionResponse,
+    /**
+     * The CreateTemplateData model constructor.
+     * @property {module:model/CreateTemplateData}
+     */
+    CreateTemplateData: CreateTemplateData,
+    /**
+     * The CustomFile model constructor.
+     * @property {module:model/CustomFile}
+     */
+    CustomFile: CustomFile,
     /**
      * The Error model constructor.
      * @property {module:model/Error}
@@ -179,6 +189,16 @@
      */
     SubmissionBatchData: SubmissionBatchData,
     /**
+     * The SubmissionData model constructor.
+     * @property {module:model/SubmissionData}
+     */
+    SubmissionData: SubmissionData,
+    /**
+     * The SubmissionDataBatchRequest model constructor.
+     * @property {module:model/SubmissionDataBatchRequest}
+     */
+    SubmissionDataBatchRequest: SubmissionDataBatchRequest,
+    /**
      * The SubmissionDataRequest model constructor.
      * @property {module:model/SubmissionDataRequest}
      */
@@ -188,6 +208,21 @@
      * @property {module:model/Template}
      */
     Template: Template,
+    /**
+     * The Templatesv2Template model constructor.
+     * @property {module:model/Templatesv2Template}
+     */
+    Templatesv2Template: Templatesv2Template,
+    /**
+     * The Templatesv2TemplateDocument model constructor.
+     * @property {module:model/Templatesv2TemplateDocument}
+     */
+    Templatesv2TemplateDocument: Templatesv2TemplateDocument,
+    /**
+     * The Templatesv2TemplateDocumentMetadata model constructor.
+     * @property {module:model/Templatesv2TemplateDocumentMetadata}
+     */
+    Templatesv2TemplateDocumentMetadata: Templatesv2TemplateDocumentMetadata,
     /**
      * The UpdateDataRequestResponse model constructor.
      * @property {module:model/UpdateDataRequestResponse}

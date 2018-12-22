@@ -33,7 +33,7 @@
     var config = new FormAPI.Configuration();
     config.apiTokenId = 'api_token123';
     config.apiTokenSecret = 'testsecret123';
-    config.basePath = 'http://localhost:31337/api/v1'
+    config.basePath = 'http://api.formapi.local:31337/api/v1'
     instance = new FormAPI.Client(config);
   });
 
