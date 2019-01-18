@@ -16,7 +16,7 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/CreateSubmissionDataRequestData'], factory);
+    define(['../ApiClient', '../model/CreateSubmissionDataRequestData'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
     module.exports = factory(require('../ApiClient'), require('./CreateSubmissionDataRequestData'));
@@ -36,7 +36,7 @@
   /**
    * The SubmissionData model module.
    * @module model/SubmissionData
-   * @version 2.6.0
+   * @version 2.7.0
    */
 
   /**

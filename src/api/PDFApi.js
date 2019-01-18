@@ -16,7 +16,7 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/AuthenticationError', 'model/AuthenticationSuccessResponse', 'model/CombinePdfsData', 'model/CombinedSubmission', 'model/CombinedSubmissionData', 'model/CreateCombinedSubmissionResponse', 'model/CreateCustomFileData', 'model/CreateCustomFileResponse', 'model/CreateSubmissionBatchResponse', 'model/CreateSubmissionDataRequestTokenResponse', 'model/CreateSubmissionResponse', 'model/CreateTemplateData', 'model/Error', 'model/InvalidRequest', 'model/PendingTemplate', 'model/Submission', 'model/SubmissionBatch', 'model/SubmissionBatchData', 'model/SubmissionData', 'model/SubmissionDataRequest', 'model/Template', 'model/UpdateDataRequestResponse', 'model/UpdateSubmissionDataRequestData'], factory);
+    define(['../ApiClient', '../model/AuthenticationError', '../model/AuthenticationSuccessResponse', '../model/CombinePdfsData', '../model/CombinedSubmission', '../model/CombinedSubmissionData', '../model/CreateCombinedSubmissionResponse', '../model/CreateCustomFileData', '../model/CreateCustomFileResponse', '../model/CreateSubmissionBatchResponse', '../model/CreateSubmissionDataRequestTokenResponse', '../model/CreateSubmissionResponse', '../model/CreateTemplateData', '../model/Error', '../model/InvalidRequest', '../model/PendingTemplate', '../model/Submission', '../model/SubmissionBatch', '../model/SubmissionBatchData', '../model/SubmissionData', '../model/SubmissionDataRequest', '../model/Template', '../model/UpdateDataRequestResponse', '../model/UpdateSubmissionDataRequestData'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
     module.exports = factory(require('../ApiClient'), require('../model/AuthenticationError'), require('../model/AuthenticationSuccessResponse'), require('../model/CombinePdfsData'), require('../model/CombinedSubmission'), require('../model/CombinedSubmissionData'), require('../model/CreateCombinedSubmissionResponse'), require('../model/CreateCustomFileData'), require('../model/CreateCustomFileResponse'), require('../model/CreateSubmissionBatchResponse'), require('../model/CreateSubmissionDataRequestTokenResponse'), require('../model/CreateSubmissionResponse'), require('../model/CreateTemplateData'), require('../model/Error'), require('../model/InvalidRequest'), require('../model/PendingTemplate'), require('../model/Submission'), require('../model/SubmissionBatch'), require('../model/SubmissionBatchData'), require('../model/SubmissionData'), require('../model/SubmissionDataRequest'), require('../model/Template'), require('../model/UpdateDataRequestResponse'), require('../model/UpdateSubmissionDataRequestData'));
@@ -33,7 +33,7 @@
   /**
    * PDF service.
    * @module api/PDFApi
-   * @version 2.6.0
+   * @version 2.7.0
    */
 
   /**
