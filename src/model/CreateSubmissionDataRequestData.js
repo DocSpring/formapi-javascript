@@ -36,7 +36,7 @@
   /**
    * The CreateSubmissionDataRequestData model module.
    * @module model/CreateSubmissionDataRequestData
-   * @version 2.7.0
+   * @version 2.8.0
    */
 
   /**

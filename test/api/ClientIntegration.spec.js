@@ -50,6 +50,7 @@
 
     describe('combineSubmissions', function () {
       it('should call combineSubmissions successfully and wait for PDF', function (done) {
+        this.timeout(10000);
         var opts = {
           submission_ids: ['sub_000000000000000001', 'sub_000000000000000002']
         };
@@ -65,6 +66,7 @@
 
     describe('generatePDF', function () {
       it('should call generatePDF and wait for PDF', function (done) {
+        this.timeout(10000);
         var template_id = 'tpl_000000000000000001';
         var options = {
           data: {
@@ -86,6 +88,7 @@
 
     describe('generatePDF', function () {
       it('should call generatePDF and not wait for the PDF', function (done) {
+        this.timeout(10000);
         var template_id = 'tpl_000000000000000001';
         var options = {
           data: {

@@ -36,7 +36,7 @@
   /**
    * The CreateSubmissionDataRequestTokenResponseToken model module.
    * @module model/CreateSubmissionDataRequestTokenResponseToken
-   * @version 2.7.0
+   * @version 2.8.0
    */
 
   /**

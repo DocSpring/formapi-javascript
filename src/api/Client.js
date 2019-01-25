@@ -13,22 +13,23 @@
  *
  */
 
-(function (root, factory) {
+(function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
     define(['./PDFApi', '../ApiClient', '../model/AuthenticationError', '../model/AuthenticationSuccessResponse', '../model/CombinePdfsData', '../model/CombinedSubmission', '../model/CombinedSubmissionData', '../model/CreateCombinedSubmissionResponse', '../model/CreateCustomFileData', '../model/CreateCustomFileResponse', '../model/CreateSubmissionBatchResponse', '../model/CreateSubmissionDataRequestTokenResponse', '../model/CreateSubmissionResponse', '../model/CreateTemplateData', '../model/Error', '../model/InvalidRequest', '../model/PendingTemplate', '../model/Submission', '../model/SubmissionBatch', '../model/SubmissionBatchData', '../model/SubmissionData', '../model/SubmissionDataRequest', '../model/Template', '../model/UpdateDataRequestResponse', '../model/UpdateSubmissionDataRequestData'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./PDFApi'), require('../ApiClient'), require('../model/AuthenticationError'), require('../model/AuthenticationSuccessResponse'), require('../model/CombinedSubmission'), require('../model/CombinedSubmissionData'), require('../model/CreateCombinedSubmissionResponse'), require('../model/SubmissionData'), require('../model/CreateSubmissionResponse'), require('../model/Error'), require('../model/InvalidRequest'), require('../model/Submission'), require('../model/Template'));
+    module.exports = factory(require('./PDFApi'), require('../ApiClient'), require('../model/AuthenticationError'), require('../model/AuthenticationSuccessResponse'), require('../model/CombinePdfsData'), require('../model/CombinedSubmission'), require('../model/CombinedSubmissionData'), require('../model/CreateCombinedSubmissionResponse'), require('../model/CreateCustomFileData'), require('../model/CreateCustomFileResponse'), require('../model/CreateSubmissionBatchResponse'), require('../model/CreateSubmissionDataRequestTokenResponse'), require('../model/CreateSubmissionResponse'), require('../model/CreateTemplateData'), require('../model/Error'), require('../model/InvalidRequest'), require('../model/PendingTemplate'), require('../model/Submission'), require('../model/SubmissionBatch'), require('../model/SubmissionBatchData'), require('../model/SubmissionData'), require('../model/SubmissionDataRequest'), require('../model/Template'), require('../model/UpdateDataRequestResponse'), require('../model/UpdateSubmissionDataRequestData'));
   } else {
     // Browser globals (root is window)
     if (!root.FormAPI) {
       root.FormAPI = {};
     }
-    root.FormAPI.PDFApi = factory(root.FormAPI.PDFApi, root.FormAPI.ApiClient, root.FormAPI.AuthenticationError, root.FormAPI.AuthenticationSuccessResponse, root.FormAPI.CombinedSubmission, root.FormAPI.CombinedSubmissionData, root.FormAPI.CreateCombinedSubmissionResponse, root.FormAPI.SubmissionData, root.FormAPI.CreateSubmissionResponse, root.FormAPI.Error, root.FormAPI.InvalidRequest, root.FormAPI.Submission, root.FormAPI.Template);
+    root.FormAPI.Client = factory(root.FormAPI.PDFApi, root.FormAPI.ApiClient, root.FormAPI.AuthenticationError, root.FormAPI.AuthenticationSuccessResponse, root.FormAPI.CombinePdfsData, root.FormAPI.CombinedSubmission, root.FormAPI.CombinedSubmissionData, root.FormAPI.CreateCombinedSubmissionResponse, root.FormAPI.CreateCustomFileData, root.FormAPI.CreateCustomFileResponse, root.FormAPI.CreateSubmissionBatchResponse, root.FormAPI.CreateSubmissionDataRequestTokenResponse, root.FormAPI.CreateSubmissionResponse, root.FormAPI.CreateTemplateData, root.FormAPI.Error, root.FormAPI.InvalidRequest, root.FormAPI.PendingTemplate, root.FormAPI.Submission, root.FormAPI.SubmissionBatch, root.FormAPI.SubmissionBatchData, root.FormAPI.SubmissionData, root.FormAPI.SubmissionDataRequest, root.FormAPI.Template, root.FormAPI.UpdateDataRequestResponse, root.FormAPI.UpdateSubmissionDataRequestData);
   }
-}(this, function (PDFApi, ApiClient, AuthenticationError, AuthenticationSuccessResponse, CombinedSubmission, CombinedSubmissionData, CreateCombinedSubmissionResponse, SubmissionData, CreateSubmissionResponse, Error, InvalidRequest, Submission, Template) {
+}(this, function(PDFApi, ApiClient, AuthenticationError, AuthenticationSuccessResponse, CombinePdfsData, CombinedSubmission, CombinedSubmissionData, CreateCombinedSubmissionResponse, CreateCustomFileData, CreateCustomFileResponse, CreateSubmissionBatchResponse, CreateSubmissionDataRequestTokenResponse, CreateSubmissionResponse, CreateTemplateData, Error, InvalidRequest, PendingTemplate, Submission, SubmissionBatch, SubmissionBatchData, SubmissionData, SubmissionDataRequest, Template, UpdateDataRequestResponse, UpdateSubmissionDataRequestData) {
   'use strict';
+
   /**
    * PDF service.
    * @module api/Client
@@ -145,7 +146,7 @@
       }, function (record, updateCallback) {
         self.getCombinedSubmission(record.id, function (error, combinedSubmission) {
           if (error) {
-            callback(error, response);
+            callback(error, combinedSubmission);
             return;
           }
           updateCallback(combinedSubmission);
@@ -176,7 +177,7 @@
       }, function (record, updateCallback) {
         self.getSubmission(record.id, function (error, submission) {
           if (error) {
-            callback(error, response);
+            callback(error, submission);
             return;
           }
           updateCallback(submission);
@@ -187,7 +188,7 @@
           return;
         }
         var response = CreateSubmissionResponse.constructFromObject({
-          status: success? 'success' : 'error',
+          status: success ? 'success' : 'error',
           submission: record,
         })
         callback(error, response);
