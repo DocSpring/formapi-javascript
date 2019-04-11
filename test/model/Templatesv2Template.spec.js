@@ -62,20 +62,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property publicWebForm (base name: "public_web_form")', function() {
-      // uncomment below and update the code to test the property publicWebForm
-      //var instance = new FormAPI.Templatesv2Template();
-      //expect(instance).to.be();
-    });
-
     it('should have the property webhookUrl (base name: "webhook_url")', function() {
       // uncomment below and update the code to test the property webhookUrl
-      //var instance = new FormAPI.Templatesv2Template();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property expireSubmissions (base name: "expire_submissions")', function() {
-      // uncomment below and update the code to test the property expireSubmissions
       //var instance = new FormAPI.Templatesv2Template();
       //expect(instance).to.be();
     });
@@ -98,12 +86,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property name (base name: "name")', function() {
-      // uncomment below and update the code to test the property name
-      //var instance = new FormAPI.Templatesv2Template();
-      //expect(instance).to.be();
-    });
-
     it('should have the property publicSubmissions (base name: "public_submissions")', function() {
       // uncomment below and update the code to test the property publicSubmissions
       //var instance = new FormAPI.Templatesv2Template();
@@ -116,14 +98,38 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property redirectUrl (base name: "redirect_url")', function() {
-      // uncomment below and update the code to test the property redirectUrl
+    it('should have the property blockchainTimestampVerification (base name: "blockchain_timestamp_verification")', function() {
+      // uncomment below and update the code to test the property blockchainTimestampVerification
       //var instance = new FormAPI.Templatesv2Template();
       //expect(instance).to.be();
     });
 
-    it('should have the property blockchainTimestampVerification (base name: "blockchain_timestamp_verification")', function() {
-      // uncomment below and update the code to test the property blockchainTimestampVerification
+    it('should have the property publicWebForm (base name: "public_web_form")', function() {
+      // uncomment below and update the code to test the property publicWebForm
+      //var instance = new FormAPI.Templatesv2Template();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property editableSubmissions (base name: "editable_submissions")', function() {
+      // uncomment below and update the code to test the property editableSubmissions
+      //var instance = new FormAPI.Templatesv2Template();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property expireSubmissions (base name: "expire_submissions")', function() {
+      // uncomment below and update the code to test the property expireSubmissions
+      //var instance = new FormAPI.Templatesv2Template();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property name (base name: "name")', function() {
+      // uncomment below and update the code to test the property name
+      //var instance = new FormAPI.Templatesv2Template();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property redirectUrl (base name: "redirect_url")', function() {
+      // uncomment below and update the code to test the property redirectUrl
       //var instance = new FormAPI.Templatesv2Template();
       //expect(instance).to.be();
     });

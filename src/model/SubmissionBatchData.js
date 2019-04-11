@@ -36,7 +36,7 @@
   /**
    * The SubmissionBatchData model module.
    * @module model/SubmissionBatchData
-   * @version 2.8.0
+   * @version 2.9.0
    */
 
   /**

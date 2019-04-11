@@ -33,7 +33,7 @@
   /**
    * PDF service.
    * @module api/PDFApi
-   * @version 2.8.0
+   * @version 2.9.0
    */
 
   /**
@@ -723,10 +723,13 @@
     /**
      * Check the status of a PDF
      * @param {String} submissionId 
+     * @param {Object} opts Optional parameters
+     * @param {Boolean} opts.includeData 
      * @param {module:api/PDFApi~getSubmissionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Submission}
      */
-    this.getSubmission = function(submissionId, callback) {
+    this.getSubmission = function(submissionId, opts, callback) {
+      opts = opts || {};
       var postBody = null;
 
       // verify the required parameter 'submissionId' is set
@@ -739,6 +742,7 @@
         'submission_id': submissionId
       };
       var queryParams = {
+        'include_data': opts['includeData'],
       };
       var collectionQueryParams = {
       };

@@ -104,6 +104,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property editableSubmissions (base name: "editable_submissions")', function() {
+      // uncomment below and update the code to test the property editableSubmissions
+      //var instance = new FormAPI.PendingTemplate();
+      //expect(instance).to.be();
+    });
+
     it('should have the property expireSubmissions (base name: "expire_submissions")', function() {
       // uncomment below and update the code to test the property expireSubmissions
       //var instance = new FormAPI.PendingTemplate();

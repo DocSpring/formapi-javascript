@@ -36,7 +36,7 @@
   /**
    * The CombinedSubmission model module.
    * @module model/CombinedSubmission
-   * @version 2.8.0
+   * @version 2.9.0
    */
 
   /**

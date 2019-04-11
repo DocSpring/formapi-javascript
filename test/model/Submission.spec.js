@@ -68,6 +68,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property editable (base name: "editable")', function() {
+      // uncomment below and update the code to test the property editable
+      //var instance = new FormAPI.Submission();
+      //expect(instance).to.be();
+    });
+
     it('should have the property expired (base name: "expired")', function() {
       // uncomment below and update the code to test the property expired
       //var instance = new FormAPI.Submission();

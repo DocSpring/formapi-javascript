@@ -689,7 +689,7 @@ This endpoint does not need any parameter.
 
 <a name="getSubmission"></a>
 # **getSubmission**
-> Submission getSubmission(submissionId)
+> Submission getSubmission(submissionId, opts)
 
 Check the status of a PDF
 
@@ -705,6 +705,9 @@ api_token_basic.password = 'YOUR PASSWORD';
 
 var apiInstance = new FormAPI.PDFApi();
 var submissionId = sub_000000000000000001; // String | 
+var opts = {
+  'includeData': false // Boolean | 
+};
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -712,7 +715,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getSubmission(submissionId, callback);
+apiInstance.getSubmission(submissionId, opts, callback);
 ```
 
 ### Parameters
@@ -720,6 +723,7 @@ apiInstance.getSubmission(submissionId, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **submissionId** | **String**|  | 
+ **includeData** | **Boolean**|  | [optional] 
 
 ### Return type
 

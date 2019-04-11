@@ -36,7 +36,7 @@
   /**
    * The Templatesv2TemplateDocumentMetadata model module.
    * @module model/Templatesv2TemplateDocumentMetadata
-   * @version 2.8.0
+   * @version 2.9.0
    */
 
   /**

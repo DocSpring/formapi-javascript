@@ -69,6 +69,7 @@
         this.timeout(10000);
         var template_id = 'tpl_000000000000000001';
         var options = {
+          editable: false,
           data: {
             title: 'Test PDF',
             description: 'This PDF is great!',
@@ -80,6 +81,7 @@
           var submission = response.submission;
           expect(submission.id).to.match(/^sub_/);
           expect(submission.expired).to.be(false);
+          expect(submission.editable).to.be(false);
           expect(submission.state).to.be('processed');
           done();
         });

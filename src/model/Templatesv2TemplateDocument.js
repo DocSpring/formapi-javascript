@@ -36,7 +36,7 @@
   /**
    * The Templatesv2TemplateDocument model module.
    * @module model/Templatesv2TemplateDocument
-   * @version 2.8.0
+   * @version 2.9.0
    */
 
   /**

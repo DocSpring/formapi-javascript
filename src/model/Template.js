@@ -36,7 +36,7 @@
   /**
    * The Template model module.
    * @module model/Template
-   * @version 2.8.0
+   * @version 2.9.0
    */
 
   /**
@@ -46,6 +46,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -97,6 +98,9 @@
       }
       if (data.hasOwnProperty('public_web_form')) {
         obj['public_web_form'] = ApiClient.convertToType(data['public_web_form'], 'Boolean');
+      }
+      if (data.hasOwnProperty('editable_submissions')) {
+        obj['editable_submissions'] = ApiClient.convertToType(data['editable_submissions'], 'Boolean');
       }
       if (data.hasOwnProperty('expire_submissions')) {
         obj['expire_submissions'] = ApiClient.convertToType(data['expire_submissions'], 'Boolean');
@@ -152,6 +156,10 @@
    * @member {Boolean} public_web_form
    */
   exports.prototype['public_web_form'] = undefined;
+  /**
+   * @member {Boolean} editable_submissions
+   */
+  exports.prototype['editable_submissions'] = undefined;
   /**
    * @member {Boolean} expire_submissions
    */

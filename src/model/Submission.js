@@ -36,7 +36,7 @@
   /**
    * The Submission model module.
    * @module model/Submission
-   * @version 2.8.0
+   * @version 2.9.0
    */
 
   /**
@@ -53,6 +53,7 @@
 
     _this['id'] = id;
     _this['test'] = test;
+
     _this['expired'] = expired;
 
 
@@ -80,6 +81,9 @@
       }
       if (data.hasOwnProperty('test')) {
         obj['test'] = ApiClient.convertToType(data['test'], 'Boolean');
+      }
+      if (data.hasOwnProperty('editable')) {
+        obj['editable'] = ApiClient.convertToType(data['editable'], 'Boolean');
       }
       if (data.hasOwnProperty('expired')) {
         obj['expired'] = ApiClient.convertToType(data['expired'], 'Boolean');
@@ -120,6 +124,10 @@
    * @member {Boolean} test
    */
   exports.prototype['test'] = undefined;
+  /**
+   * @member {Boolean} editable
+   */
+  exports.prototype['editable'] = undefined;
   /**
    * @member {Boolean} expired
    */
@@ -198,7 +206,12 @@
      * value: "waiting_for_data_requests"
      * @const
      */
-    "waiting_for_data_requests": "waiting_for_data_requests"  };
+    "waiting_for_data_requests": "waiting_for_data_requests",
+    /**
+     * value: "liquid_syntax_error"
+     * @const
+     */
+    "liquid_syntax_error": "liquid_syntax_error"  };
 
 
   return exports;

@@ -195,7 +195,7 @@
     describe('getSubmission', function () {
       it('should call getSubmission successfully', function (done) {
         var submissionId = 'sub_000000000000000001';
-        instance.getSubmission(submissionId, function (error, response) {
+        instance.getSubmission(submissionId, {}, function (error, response) {
           if (error) throw error;
           expect(response.id).to.match(/^sub_/);
           done();

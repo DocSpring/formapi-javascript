@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
 **test** | **Boolean** |  | 
+**editable** | **Boolean** |  | [optional] 
 **expired** | **Boolean** |  | 
 **expiresAt** | **String** |  | [optional] 
 **processedAt** | **String** |  | [optional] 
@@ -33,6 +34,8 @@ Name | Type | Description | Notes
 * `image_processing_failed` (value: `"image_processing_failed"`)
 
 * `waiting_for_data_requests` (value: `"waiting_for_data_requests"`)
+
+* `liquid_syntax_error` (value: `"liquid_syntax_error"`)
 
 
 

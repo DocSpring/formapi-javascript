@@ -118,7 +118,7 @@
           updateRecord(record, function (updatedRecord) {
             record = updatedRecord;
             if (record.state != 'pending') {
-              callback(null, record, record.state == 'processed');
+              callback(null, record, record.state === 'processed');
               return;
             }
             var currentTime = Math.floor(new Date() / 1000);
@@ -175,7 +175,7 @@
           waitCallback(response.submission);
         });
       }, function (record, updateCallback) {
-        self.getSubmission(record.id, function (error, submission) {
+        self.getSubmission(record.id, {}, function (error, submission) {
           if (error) {
             callback(error, submission);
             return;
