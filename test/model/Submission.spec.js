@@ -62,6 +62,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property templateId (base name: "template_id")', function() {
+      // uncomment below and update the code to test the property templateId
+      //var instance = new FormAPI.Submission();
+      //expect(instance).to.be();
+    });
+
     it('should have the property test (base name: "test")', function() {
       // uncomment below and update the code to test the property test
       //var instance = new FormAPI.Submission();

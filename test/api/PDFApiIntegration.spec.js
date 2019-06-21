@@ -202,16 +202,17 @@
         });
       });
     });
-    describe('getTemplates', function () {
-      it('should call getTemplates successfully', function (done) {
+    describe('listTemplates', function () {
+      it('should call listTemplates successfully', function (done) {
         var opts = {
+          query: "API Client Test Template 2",
           page: 1,
           per_page: 10
         };
-        instance.getTemplates(opts, function (error, templates) {
+        instance.listTemplates(opts, function (error, templates) {
           if (error) throw error;
-          expect(templates.length).to.be(2);
-          expect(templates[0].id).to.match(/^tpl_/);
+          expect(templates.length).to.be(1);
+          expect(templates[0].id).to.be("tpl_000000000000000002");
           done();
         });
       });

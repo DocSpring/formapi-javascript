@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **allowAdditionalProperties** | **Boolean** |  | [optional] 
 **publicSubmissions** | **Boolean** |  | [optional] 
 **slackWebhookUrl** | **String** |  | [optional] 
-**blockchainTimestampVerification** | **Boolean** |  | [optional] 
 **publicWebForm** | **Boolean** |  | [optional] 
 **editableSubmissions** | **Boolean** |  | [optional] 
 **expireSubmissions** | **Boolean** |  | [optional] 

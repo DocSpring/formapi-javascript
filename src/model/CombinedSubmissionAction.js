@@ -36,7 +36,7 @@
   /**
    * The CombinedSubmissionAction model module.
    * @module model/CombinedSubmissionAction
-   * @version 2.9.0
+   * @version 2.10.0
    */
 
   /**

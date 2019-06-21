@@ -22,7 +22,7 @@ Method | HTTP request | Description
 [**getSubmissionBatch**](PDFApi.md#getSubmissionBatch) | **GET** /submissions/batches/{submission_batch_id} | Check the status of a submission batch job
 [**getTemplate**](PDFApi.md#getTemplate) | **GET** /templates/{template_id} | Check the status of an uploaded template
 [**getTemplateSchema**](PDFApi.md#getTemplateSchema) | **GET** /templates/{template_id}/schema | Fetch the JSON schema for a template
-[**getTemplates**](PDFApi.md#getTemplates) | **GET** /templates | Get a list of all templates
+[**listTemplates**](PDFApi.md#listTemplates) | **GET** /templates | Get a list of all templates
 [**testAuthentication**](PDFApi.md#testAuthentication) | **GET** /authentication | Test Authentication
 [**updateDataRequest**](PDFApi.md#updateDataRequest) | **PUT** /data_requests/{data_request_id} | Update a submission data request
 
@@ -883,9 +883,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="getTemplates"></a>
-# **getTemplates**
-> [Template] getTemplates(opts)
+<a name="listTemplates"></a>
+# **listTemplates**
+> [Template] listTemplates(opts)
 
 Get a list of all templates
 
@@ -901,6 +901,7 @@ api_token_basic.password = 'YOUR PASSWORD';
 
 var apiInstance = new FormAPI.PDFApi();
 var opts = {
+  'query': 2, // String | Search By Name
   'page': 2, // Number | Default: 1
   'perPage': 1 // Number | Default: 50
 };
@@ -911,13 +912,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getTemplates(opts, callback);
+apiInstance.listTemplates(opts, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **query** | **String**| Search By Name | [optional] 
  **page** | **Number**| Default: 1 | [optional] 
  **perPage** | **Number**| Default: 50 | [optional] 
 

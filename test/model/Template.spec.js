@@ -92,12 +92,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property blockchainTimestampVerification (base name: "blockchain_timestamp_verification")', function() {
-      // uncomment below and update the code to test the property blockchainTimestampVerification
-      //var instance = new FormAPI.Template();
-      //expect(instance).to.be();
-    });
-
     it('should have the property publicWebForm (base name: "public_web_form")', function() {
       // uncomment below and update the code to test the property publicWebForm
       //var instance = new FormAPI.Template();

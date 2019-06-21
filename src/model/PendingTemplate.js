@@ -36,7 +36,7 @@
   /**
    * The PendingTemplate model module.
    * @module model/PendingTemplate
-   * @version 2.9.0
+   * @version 2.10.0
    */
 
   /**
@@ -46,7 +46,6 @@
    */
   var exports = function() {
     var _this = this;
-
 
 
 
@@ -91,9 +90,6 @@
       }
       if (data.hasOwnProperty('slack_webhook_url')) {
         obj['slack_webhook_url'] = ApiClient.convertToType(data['slack_webhook_url'], 'String');
-      }
-      if (data.hasOwnProperty('blockchain_timestamp_verification')) {
-        obj['blockchain_timestamp_verification'] = ApiClient.convertToType(data['blockchain_timestamp_verification'], 'Boolean');
       }
       if (data.hasOwnProperty('public_web_form')) {
         obj['public_web_form'] = ApiClient.convertToType(data['public_web_form'], 'Boolean');
@@ -144,10 +140,6 @@
    * @member {String} slack_webhook_url
    */
   exports.prototype['slack_webhook_url'] = undefined;
-  /**
-   * @member {Boolean} blockchain_timestamp_verification
-   */
-  exports.prototype['blockchain_timestamp_verification'] = undefined;
   /**
    * @member {Boolean} public_web_form
    */

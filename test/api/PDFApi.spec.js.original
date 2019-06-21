@@ -230,10 +230,10 @@
         done();
       });
     });
-    describe('getTemplates', function() {
-      it('should call getTemplates successfully', function(done) {
-        //uncomment below and update the code to test getTemplates
-        //instance.getTemplates(function(error) {
+    describe('listTemplates', function() {
+      it('should call listTemplates successfully', function(done) {
+        //uncomment below and update the code to test listTemplates
+        //instance.listTemplates(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

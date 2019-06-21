@@ -36,7 +36,7 @@
   /**
    * The Templatesv2Template model module.
    * @module model/Templatesv2Template
-   * @version 2.9.0
+   * @version 2.10.0
    */
 
   /**
@@ -46,7 +46,6 @@
    */
   var exports = function() {
     var _this = this;
-
 
 
 
@@ -76,8 +75,17 @@
       if (data.hasOwnProperty('expiration_interval')) {
         obj['expiration_interval'] = ApiClient.convertToType(data['expiration_interval'], 'String');
       }
+      if (data.hasOwnProperty('public_web_form')) {
+        obj['public_web_form'] = ApiClient.convertToType(data['public_web_form'], 'Boolean');
+      }
       if (data.hasOwnProperty('webhook_url')) {
         obj['webhook_url'] = ApiClient.convertToType(data['webhook_url'], 'String');
+      }
+      if (data.hasOwnProperty('editable_submissions')) {
+        obj['editable_submissions'] = ApiClient.convertToType(data['editable_submissions'], 'Boolean');
+      }
+      if (data.hasOwnProperty('expire_submissions')) {
+        obj['expire_submissions'] = ApiClient.convertToType(data['expire_submissions'], 'Boolean');
       }
       if (data.hasOwnProperty('expire_after')) {
         obj['expire_after'] = ApiClient.convertToType(data['expire_after'], 'Number');
@@ -88,26 +96,14 @@
       if (data.hasOwnProperty('document')) {
         obj['document'] = Templatesv2TemplateDocument.constructFromObject(data['document']);
       }
+      if (data.hasOwnProperty('name')) {
+        obj['name'] = ApiClient.convertToType(data['name'], 'String');
+      }
       if (data.hasOwnProperty('public_submissions')) {
         obj['public_submissions'] = ApiClient.convertToType(data['public_submissions'], 'Boolean');
       }
       if (data.hasOwnProperty('slack_webhook_url')) {
         obj['slack_webhook_url'] = ApiClient.convertToType(data['slack_webhook_url'], 'String');
-      }
-      if (data.hasOwnProperty('blockchain_timestamp_verification')) {
-        obj['blockchain_timestamp_verification'] = ApiClient.convertToType(data['blockchain_timestamp_verification'], 'Boolean');
-      }
-      if (data.hasOwnProperty('public_web_form')) {
-        obj['public_web_form'] = ApiClient.convertToType(data['public_web_form'], 'Boolean');
-      }
-      if (data.hasOwnProperty('editable_submissions')) {
-        obj['editable_submissions'] = ApiClient.convertToType(data['editable_submissions'], 'Boolean');
-      }
-      if (data.hasOwnProperty('expire_submissions')) {
-        obj['expire_submissions'] = ApiClient.convertToType(data['expire_submissions'], 'Boolean');
-      }
-      if (data.hasOwnProperty('name')) {
-        obj['name'] = ApiClient.convertToType(data['name'], 'String');
       }
       if (data.hasOwnProperty('redirect_url')) {
         obj['redirect_url'] = ApiClient.convertToType(data['redirect_url'], 'String');
@@ -121,9 +117,21 @@
    */
   exports.prototype['expiration_interval'] = undefined;
   /**
+   * @member {Boolean} public_web_form
+   */
+  exports.prototype['public_web_form'] = undefined;
+  /**
    * @member {String} webhook_url
    */
   exports.prototype['webhook_url'] = undefined;
+  /**
+   * @member {Boolean} editable_submissions
+   */
+  exports.prototype['editable_submissions'] = undefined;
+  /**
+   * @member {Boolean} expire_submissions
+   */
+  exports.prototype['expire_submissions'] = undefined;
   /**
    * @member {Number} expire_after
    */
@@ -137,6 +145,10 @@
    */
   exports.prototype['document'] = undefined;
   /**
+   * @member {String} name
+   */
+  exports.prototype['name'] = undefined;
+  /**
    * @member {Boolean} public_submissions
    */
   exports.prototype['public_submissions'] = undefined;
@@ -144,26 +156,6 @@
    * @member {String} slack_webhook_url
    */
   exports.prototype['slack_webhook_url'] = undefined;
-  /**
-   * @member {Boolean} blockchain_timestamp_verification
-   */
-  exports.prototype['blockchain_timestamp_verification'] = undefined;
-  /**
-   * @member {Boolean} public_web_form
-   */
-  exports.prototype['public_web_form'] = undefined;
-  /**
-   * @member {Boolean} editable_submissions
-   */
-  exports.prototype['editable_submissions'] = undefined;
-  /**
-   * @member {Boolean} expire_submissions
-   */
-  exports.prototype['expire_submissions'] = undefined;
-  /**
-   * @member {String} name
-   */
-  exports.prototype['name'] = undefined;
   /**
    * @member {String} redirect_url
    */

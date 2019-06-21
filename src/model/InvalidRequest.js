@@ -36,7 +36,7 @@
   /**
    * The InvalidRequest model module.
    * @module model/InvalidRequest
-   * @version 2.9.0
+   * @version 2.10.0
    */
 
   /**

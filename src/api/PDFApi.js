@@ -33,7 +33,7 @@
   /**
    * PDF service.
    * @module api/PDFApi
-   * @version 2.9.0
+   * @version 2.10.0
    */
 
   /**
@@ -909,8 +909,8 @@
     }
 
     /**
-     * Callback function to receive the result of the getTemplates operation.
-     * @callback module:api/PDFApi~getTemplatesCallback
+     * Callback function to receive the result of the listTemplates operation.
+     * @callback module:api/PDFApi~listTemplatesCallback
      * @param {String} error Error message, if any.
      * @param {Array.<module:model/Template>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -919,12 +919,13 @@
     /**
      * Get a list of all templates
      * @param {Object} opts Optional parameters
+     * @param {String} opts.query Search By Name
      * @param {Number} opts.page Default: 1
      * @param {Number} opts.perPage Default: 50
-     * @param {module:api/PDFApi~getTemplatesCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/PDFApi~listTemplatesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Template>}
      */
-    this.getTemplates = function(opts, callback) {
+    this.listTemplates = function(opts, callback) {
       opts = opts || {};
       var postBody = null;
 
@@ -932,6 +933,7 @@
       var pathParams = {
       };
       var queryParams = {
+        'query': opts['query'],
         'page': opts['page'],
         'per_page': opts['perPage'],
       };

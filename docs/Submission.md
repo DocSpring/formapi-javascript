@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
+**templateId** | **String** |  | [optional] 
 **test** | **Boolean** |  | 
 **editable** | **Boolean** |  | [optional] 
 **expired** | **Boolean** |  | 
@@ -36,6 +37,10 @@ Name | Type | Description | Notes
 * `waiting_for_data_requests` (value: `"waiting_for_data_requests"`)
 
 * `liquid_syntax_error` (value: `"liquid_syntax_error"`)
+
+* `account_suspended` (value: `"account_suspended"`)
+
+* `license_revoked` (value: `"license_revoked"`)
 
 
 

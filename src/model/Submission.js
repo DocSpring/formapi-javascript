@@ -36,7 +36,7 @@
   /**
    * The Submission model module.
    * @module model/Submission
-   * @version 2.9.0
+   * @version 2.10.0
    */
 
   /**
@@ -52,6 +52,7 @@
     var _this = this;
 
     _this['id'] = id;
+
     _this['test'] = test;
 
     _this['expired'] = expired;
@@ -78,6 +79,9 @@
 
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
+      }
+      if (data.hasOwnProperty('template_id')) {
+        obj['template_id'] = ApiClient.convertToType(data['template_id'], 'String');
       }
       if (data.hasOwnProperty('test')) {
         obj['test'] = ApiClient.convertToType(data['test'], 'Boolean');
@@ -120,6 +124,10 @@
    * @member {String} id
    */
   exports.prototype['id'] = undefined;
+  /**
+   * @member {String} template_id
+   */
+  exports.prototype['template_id'] = undefined;
   /**
    * @member {Boolean} test
    */
@@ -211,7 +219,17 @@
      * value: "liquid_syntax_error"
      * @const
      */
-    "liquid_syntax_error": "liquid_syntax_error"  };
+    "liquid_syntax_error": "liquid_syntax_error",
+    /**
+     * value: "account_suspended"
+     * @const
+     */
+    "account_suspended": "account_suspended",
+    /**
+     * value: "license_revoked"
+     * @const
+     */
+    "license_revoked": "license_revoked"  };
 
 
   return exports;
