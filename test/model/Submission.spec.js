@@ -116,6 +116,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property permanentDownloadUrl (base name: "permanent_download_url")', function() {
+      // uncomment below and update the code to test the property permanentDownloadUrl
+      //var instance = new FormAPI.Submission();
+      //expect(instance).to.be();
+    });
+
     it('should have the property batchId (base name: "batch_id")', function() {
       // uncomment below and update the code to test the property batchId
       //var instance = new FormAPI.Submission();

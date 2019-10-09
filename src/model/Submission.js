@@ -36,7 +36,7 @@
   /**
    * The Submission model module.
    * @module model/Submission
-   * @version 2.12.0
+   * @version 2.13.0
    */
 
   /**
@@ -59,6 +59,7 @@
 
 
     _this['state'] = state;
+
 
 
 
@@ -106,6 +107,9 @@
       }
       if (data.hasOwnProperty('download_url')) {
         obj['download_url'] = ApiClient.convertToType(data['download_url'], 'String');
+      }
+      if (data.hasOwnProperty('permanent_download_url')) {
+        obj['permanent_download_url'] = ApiClient.convertToType(data['permanent_download_url'], 'String');
       }
       if (data.hasOwnProperty('batch_id')) {
         obj['batch_id'] = ApiClient.convertToType(data['batch_id'], 'String');
@@ -160,6 +164,10 @@
    * @member {String} download_url
    */
   exports.prototype['download_url'] = undefined;
+  /**
+   * @member {String} permanent_download_url
+   */
+  exports.prototype['permanent_download_url'] = undefined;
   /**
    * @member {String} batch_id
    */

@@ -1,3 +1,7 @@
+### 2.13.0 [October 10, 2019]
+
+- Add permanent_download_url attribute to Submission model
+
 ### 2.12.0 [October 9, 2019]
 
 - Add parent folder ID and path params to GET template response
