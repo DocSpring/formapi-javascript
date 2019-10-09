@@ -36,7 +36,7 @@
   /**
    * The CombinePdfsData model module.
    * @module model/CombinePdfsData
-   * @version 2.10.0
+   * @version 2.12.0
    */
 
   /**

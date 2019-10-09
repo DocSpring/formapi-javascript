@@ -36,7 +36,7 @@
   /**
    * The Submission model module.
    * @module model/Submission
-   * @version 2.10.0
+   * @version 2.12.0
    */
 
   /**
@@ -216,10 +216,10 @@
      */
     "waiting_for_data_requests": "waiting_for_data_requests",
     /**
-     * value: "liquid_syntax_error"
+     * value: "syntax_error"
      * @const
      */
-    "liquid_syntax_error": "liquid_syntax_error",
+    "syntax_error": "syntax_error",
     /**
      * value: "account_suspended"
      * @const

@@ -16,12 +16,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['./ApiClient', './api/Client', './model/AuthenticationError', './model/AuthenticationSuccessResponse', './model/CombinePdfsData', './model/CombinedSubmission', './model/CombinedSubmissionAction', './model/CombinedSubmissionData', './model/CreateCombinedSubmissionResponse', './model/CreateCustomFileData', './model/CreateCustomFileResponse', './model/CreateSubmissionBatchResponse', './model/CreateSubmissionBatchSubmissionsResponse', './model/CreateSubmissionDataRequestData', './model/CreateSubmissionDataRequestTokenResponse', './model/CreateSubmissionDataRequestTokenResponseToken', './model/CreateSubmissionResponse', './model/CreateTemplateData', './model/CustomFile', './model/Error', './model/InvalidRequest', './model/PendingTemplate', './model/Submission', './model/SubmissionAction', './model/SubmissionBatch', './model/SubmissionBatchData', './model/SubmissionData', './model/SubmissionDataBatchRequest', './model/SubmissionDataRequest', './model/Template', './model/Templatesv2Template', './model/Templatesv2TemplateDocument', './model/Templatesv2TemplateDocumentMetadata', './model/UpdateDataRequestResponse', './model/UpdateSubmissionDataRequestData', './api/PDFApi'], factory);
+    define(['./ApiClient', './api/Client', './model/AuthenticationError', './model/AuthenticationSuccessResponse', './model/CombinePdfsData', './model/CombinedSubmission', './model/CombinedSubmissionAction', './model/CombinedSubmissionData', './model/CreateCombinedSubmissionResponse', './model/CreateCustomFileData', './model/CreateCustomFileResponse', './model/CreateFolderData', './model/CreateSubmissionBatchResponse', './model/CreateSubmissionBatchSubmissionsResponse', './model/CreateSubmissionDataRequestData', './model/CreateSubmissionDataRequestTokenResponse', './model/CreateSubmissionDataRequestTokenResponseToken', './model/CreateSubmissionResponse', './model/CreateTemplateData', './model/CustomFile', './model/Error', './model/Folder', './model/FoldersFolder', './model/InvalidRequest', './model/MoveFolderData', './model/MoveTemplateData', './model/PendingTemplate', './model/RenameFolderData', './model/Submission', './model/SubmissionAction', './model/SubmissionBatch', './model/SubmissionBatchData', './model/SubmissionData', './model/SubmissionDataBatchRequest', './model/SubmissionDataRequest', './model/Template', './model/Templatesv2Template', './model/Templatesv2TemplateDocument', './model/Templatesv2TemplateDocumentMetadata', './model/UpdateDataRequestResponse', './model/UpdateSubmissionDataRequestData', './api/PDFApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./api/Client'), require('./model/AuthenticationError'), require('./model/AuthenticationSuccessResponse'), require('./model/CombinePdfsData'), require('./model/CombinedSubmission'), require('./model/CombinedSubmissionAction'), require('./model/CombinedSubmissionData'), require('./model/CreateCombinedSubmissionResponse'), require('./model/CreateCustomFileData'), require('./model/CreateCustomFileResponse'), require('./model/CreateSubmissionBatchResponse'), require('./model/CreateSubmissionBatchSubmissionsResponse'), require('./model/CreateSubmissionDataRequestData'), require('./model/CreateSubmissionDataRequestTokenResponse'), require('./model/CreateSubmissionDataRequestTokenResponseToken'), require('./model/CreateSubmissionResponse'), require('./model/CreateTemplateData'), require('./model/CustomFile'), require('./model/Error'), require('./model/InvalidRequest'), require('./model/PendingTemplate'), require('./model/Submission'), require('./model/SubmissionAction'), require('./model/SubmissionBatch'), require('./model/SubmissionBatchData'), require('./model/SubmissionData'), require('./model/SubmissionDataBatchRequest'), require('./model/SubmissionDataRequest'), require('./model/Template'), require('./model/Templatesv2Template'), require('./model/Templatesv2TemplateDocument'), require('./model/Templatesv2TemplateDocumentMetadata'), require('./model/UpdateDataRequestResponse'), require('./model/UpdateSubmissionDataRequestData'), require('./api/PDFApi'));
+    module.exports = factory(require('./ApiClient'), require('./api/Client'), require('./model/AuthenticationError'), require('./model/AuthenticationSuccessResponse'), require('./model/CombinePdfsData'), require('./model/CombinedSubmission'), require('./model/CombinedSubmissionAction'), require('./model/CombinedSubmissionData'), require('./model/CreateCombinedSubmissionResponse'), require('./model/CreateCustomFileData'), require('./model/CreateCustomFileResponse'), require('./model/CreateFolderData'), require('./model/CreateSubmissionBatchResponse'), require('./model/CreateSubmissionBatchSubmissionsResponse'), require('./model/CreateSubmissionDataRequestData'), require('./model/CreateSubmissionDataRequestTokenResponse'), require('./model/CreateSubmissionDataRequestTokenResponseToken'), require('./model/CreateSubmissionResponse'), require('./model/CreateTemplateData'), require('./model/CustomFile'), require('./model/Error'), require('./model/Folder'), require('./model/FoldersFolder'), require('./model/InvalidRequest'), require('./model/MoveFolderData'), require('./model/MoveTemplateData'), require('./model/PendingTemplate'), require('./model/RenameFolderData'), require('./model/Submission'), require('./model/SubmissionAction'), require('./model/SubmissionBatch'), require('./model/SubmissionBatchData'), require('./model/SubmissionData'), require('./model/SubmissionDataBatchRequest'), require('./model/SubmissionDataRequest'), require('./model/Template'), require('./model/Templatesv2Template'), require('./model/Templatesv2TemplateDocument'), require('./model/Templatesv2TemplateDocumentMetadata'), require('./model/UpdateDataRequestResponse'), require('./model/UpdateSubmissionDataRequestData'), require('./api/PDFApi'));
   }
-}(function(ApiClient, Client, AuthenticationError, AuthenticationSuccessResponse, CombinePdfsData, CombinedSubmission, CombinedSubmissionAction, CombinedSubmissionData, CreateCombinedSubmissionResponse, CreateCustomFileData, CreateCustomFileResponse, CreateSubmissionBatchResponse, CreateSubmissionBatchSubmissionsResponse, CreateSubmissionDataRequestData, CreateSubmissionDataRequestTokenResponse, CreateSubmissionDataRequestTokenResponseToken, CreateSubmissionResponse, CreateTemplateData, CustomFile, Error, InvalidRequest, PendingTemplate, Submission, SubmissionAction, SubmissionBatch, SubmissionBatchData, SubmissionData, SubmissionDataBatchRequest, SubmissionDataRequest, Template, Templatesv2Template, Templatesv2TemplateDocument, Templatesv2TemplateDocumentMetadata, UpdateDataRequestResponse, UpdateSubmissionDataRequestData, PDFApi) {
+}(function(ApiClient, Client, AuthenticationError, AuthenticationSuccessResponse, CombinePdfsData, CombinedSubmission, CombinedSubmissionAction, CombinedSubmissionData, CreateCombinedSubmissionResponse, CreateCustomFileData, CreateCustomFileResponse, CreateFolderData, CreateSubmissionBatchResponse, CreateSubmissionBatchSubmissionsResponse, CreateSubmissionDataRequestData, CreateSubmissionDataRequestTokenResponse, CreateSubmissionDataRequestTokenResponseToken, CreateSubmissionResponse, CreateTemplateData, CustomFile, Error, Folder, FoldersFolder, InvalidRequest, MoveFolderData, MoveTemplateData, PendingTemplate, RenameFolderData, Submission, SubmissionAction, SubmissionBatch, SubmissionBatchData, SubmissionData, SubmissionDataBatchRequest, SubmissionDataRequest, Template, Templatesv2Template, Templatesv2TemplateDocument, Templatesv2TemplateDocumentMetadata, UpdateDataRequestResponse, UpdateSubmissionDataRequestData, PDFApi) {
   'use strict';
 
   /**
@@ -53,7 +53,7 @@
    * </pre>
    * </p>
    * @module index
-   * @version 2.10.0
+   * @version 2.12.0
    */
   var exports = {
     /**
@@ -114,6 +114,11 @@
      */
     CreateCustomFileResponse: CreateCustomFileResponse,
     /**
+     * The CreateFolderData model constructor.
+     * @property {module:model/CreateFolderData}
+     */
+    CreateFolderData: CreateFolderData,
+    /**
      * The CreateSubmissionBatchResponse model constructor.
      * @property {module:model/CreateSubmissionBatchResponse}
      */
@@ -159,15 +164,40 @@
      */
     Error: Error,
     /**
+     * The Folder model constructor.
+     * @property {module:model/Folder}
+     */
+    Folder: Folder,
+    /**
+     * The FoldersFolder model constructor.
+     * @property {module:model/FoldersFolder}
+     */
+    FoldersFolder: FoldersFolder,
+    /**
      * The InvalidRequest model constructor.
      * @property {module:model/InvalidRequest}
      */
     InvalidRequest: InvalidRequest,
     /**
+     * The MoveFolderData model constructor.
+     * @property {module:model/MoveFolderData}
+     */
+    MoveFolderData: MoveFolderData,
+    /**
+     * The MoveTemplateData model constructor.
+     * @property {module:model/MoveTemplateData}
+     */
+    MoveTemplateData: MoveTemplateData,
+    /**
      * The PendingTemplate model constructor.
      * @property {module:model/PendingTemplate}
      */
     PendingTemplate: PendingTemplate,
+    /**
+     * The RenameFolderData model constructor.
+     * @property {module:model/RenameFolderData}
+     */
+    RenameFolderData: RenameFolderData,
     /**
      * The Submission model constructor.
      * @property {module:model/Submission}

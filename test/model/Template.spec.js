@@ -68,6 +68,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property parentFolderId (base name: "parent_folder_id")', function() {
+      // uncomment below and update the code to test the property parentFolderId
+      //var instance = new FormAPI.Template();
+      //expect(instance).to.be();
+    });
+
     it('should have the property expireAfter (base name: "expire_after")', function() {
       // uncomment below and update the code to test the property expireAfter
       //var instance = new FormAPI.Template();
@@ -88,6 +94,12 @@
 
     it('should have the property slackWebhookUrl (base name: "slack_webhook_url")', function() {
       // uncomment below and update the code to test the property slackWebhookUrl
+      //var instance = new FormAPI.Template();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property path (base name: "path")', function() {
+      // uncomment below and update the code to test the property path
       //var instance = new FormAPI.Template();
       //expect(instance).to.be();
     });
@@ -116,6 +128,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property permanentDocumentUrl (base name: "permanent_document_url")', function() {
+      // uncomment below and update the code to test the property permanentDocumentUrl
+      //var instance = new FormAPI.Template();
+      //expect(instance).to.be();
+    });
+
     it('should have the property templateType (base name: "template_type")', function() {
       // uncomment below and update the code to test the property templateType
       //var instance = new FormAPI.Template();
@@ -136,6 +154,12 @@
 
     it('should have the property redirectUrl (base name: "redirect_url")', function() {
       // uncomment below and update the code to test the property redirectUrl
+      //var instance = new FormAPI.Template();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property documentUrl (base name: "document_url")', function() {
+      // uncomment below and update the code to test the property documentUrl
       //var instance = new FormAPI.Template();
       //expect(instance).to.be();
     });

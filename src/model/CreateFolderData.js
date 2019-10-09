@@ -16,63 +16,63 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['../ApiClient'], factory);
+    define(['../ApiClient', '../model/FoldersFolder'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./FoldersFolder'));
   } else {
     // Browser globals (root is window)
     if (!root.FormAPI) {
       root.FormAPI = {};
     }
-    root.FormAPI.CreateCustomFileData = factory(root.FormAPI.ApiClient);
+    root.FormAPI.CreateFolderData = factory(root.FormAPI.ApiClient, root.FormAPI.FoldersFolder);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, FoldersFolder) {
   'use strict';
 
 
 
 
   /**
-   * The CreateCustomFileData model module.
-   * @module model/CreateCustomFileData
+   * The CreateFolderData model module.
+   * @module model/CreateFolderData
    * @version 2.12.0
    */
 
   /**
-   * Constructs a new <code>CreateCustomFileData</code>.
-   * @alias module:model/CreateCustomFileData
+   * Constructs a new <code>CreateFolderData</code>.
+   * @alias module:model/CreateFolderData
    * @class
-   * @param cacheId {String} 
+   * @param folder {module:model/FoldersFolder} 
    */
-  var exports = function(cacheId) {
+  var exports = function(folder) {
     var _this = this;
 
-    _this['cache_id'] = cacheId;
+    _this['folder'] = folder;
   };
 
   /**
-   * Constructs a <code>CreateCustomFileData</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>CreateFolderData</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/CreateCustomFileData} obj Optional instance to populate.
-   * @return {module:model/CreateCustomFileData} The populated <code>CreateCustomFileData</code> instance.
+   * @param {module:model/CreateFolderData} obj Optional instance to populate.
+   * @return {module:model/CreateFolderData} The populated <code>CreateFolderData</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('cache_id')) {
-        obj['cache_id'] = ApiClient.convertToType(data['cache_id'], 'String');
+      if (data.hasOwnProperty('folder')) {
+        obj['folder'] = FoldersFolder.constructFromObject(data['folder']);
       }
     }
     return obj;
   }
 
   /**
-   * @member {String} cache_id
+   * @member {module:model/FoldersFolder} folder
    */
-  exports.prototype['cache_id'] = undefined;
+  exports.prototype['folder'] = undefined;
 
 
 

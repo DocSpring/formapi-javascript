@@ -36,7 +36,7 @@ Name | Type | Description | Notes
 
 * `waiting_for_data_requests` (value: `"waiting_for_data_requests"`)
 
-* `liquid_syntax_error` (value: `"liquid_syntax_error"`)
+* `syntax_error` (value: `"syntax_error"`)
 
 * `account_suspended` (value: `"account_suspended"`)
 

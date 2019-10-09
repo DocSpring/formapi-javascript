@@ -13,73 +13,76 @@
  *
  */
 
-(function (root, factory) {
-  if (typeof define === 'function' && define.amd) {
+(function(root, factory) {
+  if (typeof define === "function" && define.amd) {
     // AMD.
-    define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
+    define(["expect.js", "../../src/index"], factory);
+  } else if (typeof module === "object" && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
+    factory(require("expect.js"), require("../../src/index"));
   } else {
     // Browser globals (root is window)
     factory(root.expect, root.FormAPI);
   }
-}(this, function (expect, FormAPI) {
-  'use strict';
+})(this, function(expect, FormAPI) {
+  "use strict";
 
   var instance;
 
-  beforeEach(function () {
+  beforeEach(function() {
     // We test the default configuration in this test,
     // and a configuration instance in Client.spec.js
     var defaultConfiguration = FormAPI.Configuration.instance;
     // Configure HTTP basic authorization: api_token_basic
-    defaultConfiguration.apiTokenId = 'api_token123';
-    defaultConfiguration.apiTokenSecret = 'testsecret123';
-    defaultConfiguration.basePath = 'http://api.formapi.local:31337/api/v1'
+    defaultConfiguration.apiTokenId = "api_token123";
+    defaultConfiguration.apiTokenSecret = "testsecret123";
+    defaultConfiguration.basePath = "http://api.formapi.local:31337/api/v1";
     instance = new FormAPI.PDFApi();
   });
 
-  describe('PDFApi', function () {
-    describe('batchGeneratePdfs', function () {
-      it('should call batchGeneratePdfs successfully', function (done) {
+  describe("PDFApi", function() {
+    describe("batchGeneratePdfs", function() {
+      it("should call batchGeneratePdfs successfully", function(done) {
         var submissionBatchData = {
           test: true,
-          template_id: 'tpl_000000000000000001',
+          template_id: "tpl_000000000000000001",
           metadata: { user_id: 42 },
           submissions: [
             {
               data: {
-                title: 'Test PDF',
-                description: 'This PDF is great!',
+                title: "Test PDF",
+                description: "This PDF is great!"
               }
             },
             {
               data: {
-                title: 'Test PDF 2',
-                description: 'This PDF is also great!',
+                title: "Test PDF 2",
+                description: "This PDF is also great!"
               }
             }
           ]
-        }
+        };
 
-        instance.batchGeneratePdfs(submissionBatchData, function (error, response) {
+        instance.batchGeneratePdfs(submissionBatchData, function(
+          error,
+          response
+        ) {
           if (error) throw error;
-          expect(response.status).to.be('success');
+          expect(response.status).to.be("success");
           expect(response.submissions.length).to.be(2);
           var firstSubmission = response.submissions[0];
-          expect(firstSubmission.status).to.be('success');
+          expect(firstSubmission.status).to.be("success");
           expect(firstSubmission.submission.id).to.match(/^sub_/);
           expect(firstSubmission.submission.expired).to.be(false);
-          expect(firstSubmission.submission.state).to.be('pending');
+          expect(firstSubmission.submission.state).to.be("pending");
           var secondSubmission = response.submissions[1];
-          expect(secondSubmission.status).to.be('success');
+          expect(secondSubmission.status).to.be("success");
           expect(secondSubmission.submission.id).to.match(/^sub_/);
           expect(secondSubmission.submission.expired).to.be(false);
-          expect(secondSubmission.submission.state).to.be('pending');
+          expect(secondSubmission.submission.state).to.be("pending");
           var batch = response.submission_batch;
           expect(batch.id).to.match(/^sbb_/);
-          expect(batch.state).to.be('pending');
+          expect(batch.state).to.be("pending");
           expect(batch.total_count).to.be(2);
           expect(batch.pending_count).to.be(2);
           done();
@@ -87,129 +90,141 @@
       });
     });
 
-    describe('combineSubmissions', function () {
-      it('should call combineSubmissions successfully', function (done) {
+    describe("combineSubmissions", function() {
+      it("should call combineSubmissions successfully", function(done) {
         var opts = {
-          submission_ids: ['sub_000000000000000001', 'sub_000000000000000002']
+          submission_ids: ["sub_000000000000000001", "sub_000000000000000002"]
         };
-        instance.combineSubmissions(opts, function (error, response) {
+        instance.combineSubmissions(opts, function(error, response) {
           if (error) throw error;
-          expect(response.status).to.be('success');
+          expect(response.status).to.be("success");
           expect(response.combined_submission.id).to.match(/^com_/);
-          expect(response.combined_submission.state).to.be('pending');
+          expect(response.combined_submission.state).to.be("pending");
           done();
         });
       });
     });
-    describe('expireCombinedSubmission', function () {
-      it('should call expireCombinedSubmission successfully', function (done) {
-        var combinedSubmissionId = 'com_000000000000000001';
-        instance.expireCombinedSubmission(combinedSubmissionId, function (error, response) {
+    describe("expireCombinedSubmission", function() {
+      it("should call expireCombinedSubmission successfully", function(done) {
+        var combinedSubmissionId = "com_000000000000000001";
+        instance.expireCombinedSubmission(combinedSubmissionId, function(
+          error,
+          response
+        ) {
           if (error) throw error;
           expect(response.expired).to.be(true);
           done();
         });
       });
     });
-    describe('expireSubmission', function () {
-      it('should call expireSubmission successfully', function (done) {
-        var submissionId = 'sub_000000000000000001';
-        instance.expireSubmission(submissionId, function (error, response) {
+    describe("expireSubmission", function() {
+      it("should call expireSubmission successfully", function(done) {
+        var submissionId = "sub_000000000000000001";
+        instance.expireSubmission(submissionId, function(error, response) {
           if (error) throw error;
           expect(response.expired).to.be(true);
           done();
         });
       });
     });
-    describe('generatePDF', function () {
-      it('should call generatePDF successfully', function (done) {
-        var templateId = 'tpl_000000000000000001';
+    describe("generatePDF", function() {
+      it("should call generatePDF successfully", function(done) {
+        var templateId = "tpl_000000000000000001";
         var submissionData = {
           data: {
-            title: 'Test PDF',
-            description: 'This PDF is great!',
+            title: "Test PDF",
+            description: "This PDF is great!"
           }
         };
-        instance.generatePDF(templateId, submissionData, function (error, response) {
+        instance.generatePDF(templateId, submissionData, function(
+          error,
+          response
+        ) {
           if (error) throw error;
-          expect(response.status).to.be('success');
+          expect(response.status).to.be("success");
           var submission = response.submission;
           expect(submission.id).to.match(/^sub_/);
           expect(submission.expired).to.be(false);
-          expect(submission.state).to.be('pending');
+          expect(submission.state).to.be("pending");
           done();
         });
       });
     });
-    describe('generatePDF with data_requests', function () {
-      it('should call generatePDF with data_requests successfully', function (done) {
-        var templateId = 'tpl_000000000000000001';
+    describe("generatePDF with data_requests", function() {
+      it("should call generatePDF with data_requests successfully", function(done) {
+        var templateId = "tpl_000000000000000001";
         var submissionData = {
           data: {
-            title: 'Test PDF',
-            description: 'This PDF is great!',
+            title: "Test PDF",
+            description: "This PDF is great!"
           },
           data_requests: [
             {
-              name: 'John Smith',
-              email: 'jsmith@example.com',
-              fields: ['description'],
+              name: "John Smith",
+              email: "jsmith@example.com",
+              fields: ["description"],
               order: 1,
-              auth_type: 'email_link'
+              auth_type: "email_link"
             }
           ]
         };
-        instance.generatePDF(templateId, submissionData, function (error, response) {
+        instance.generatePDF(templateId, submissionData, function(
+          error,
+          response
+        ) {
           if (error) throw error;
-          expect(response.status).to.be('success');
+          expect(response.status).to.be("success");
           var submission = response.submission;
           expect(submission.id).to.match(/^sub_/);
           expect(submission.expired).to.be(false);
-          expect(submission.state).to.be('waiting_for_data_requests');
+          expect(submission.state).to.be("waiting_for_data_requests");
 
           var data_requests = submission.data_requests;
           expect(data_requests.length).to.be(1);
           var data_request = data_requests[0];
 
           expect(data_request.id).to.match(/^drq_/);
-          expect(data_request.state).to.be('pending');
-          expect(data_request.fields).to.eql(['description']);
+          expect(data_request.state).to.be("pending");
+          expect(data_request.fields).to.eql(["description"]);
           expect(data_request.order).to.be(1);
-          expect(data_request.name).to.be('John Smith');
-          expect(data_request.email).to.be('jsmith@example.com');
+          expect(data_request.name).to.be("John Smith");
+          expect(data_request.email).to.be("jsmith@example.com");
 
           done();
         });
       });
     });
-    describe('getCombinedSubmission', function () {
-      it('should call getCombinedSubmission successfully', function (done) {
-        var combinedSubmissionId = 'com_000000000000000001';
-        instance.getCombinedSubmission(combinedSubmissionId, function (error, response) {
+    describe("getCombinedSubmission", function() {
+      it("should call getCombinedSubmission successfully", function(done) {
+        var combinedSubmissionId = "com_000000000000000001";
+        instance.getCombinedSubmission(combinedSubmissionId, function(
+          error,
+          response
+        ) {
           if (error) throw error;
           expect(response.id).to.match(/^com_/);
           done();
         });
       });
     });
-    describe('getSubmission', function () {
-      it('should call getSubmission successfully', function (done) {
-        var submissionId = 'sub_000000000000000001';
-        instance.getSubmission(submissionId, {}, function (error, response) {
+    describe("getSubmission", function() {
+      it("should call getSubmission successfully", function(done) {
+        var submissionId = "sub_000000000000000001";
+        instance.getSubmission(submissionId, {}, function(error, response) {
           if (error) throw error;
           expect(response.id).to.match(/^sub_/);
           done();
         });
       });
     });
-    describe('listTemplates', function () {
-      it('should call listTemplates successfully', function (done) {
+    describe("listTemplates", function() {
+      it("should call listTemplates successfully", function(done) {
         var opts = {
           query: "API Client Test Template 2",
           page: 1,
           per_page: 10
         };
-        instance.listTemplates(opts, function (error, templates) {
+        instance.listTemplates(opts, function(error, templates) {
           if (error) throw error;
           expect(templates.length).to.be(1);
           expect(templates[0].id).to.be("tpl_000000000000000002");
@@ -217,14 +232,35 @@
         });
       });
     });
-    describe('testAuthentication', function () {
-      it('should call testAuthentication successfully', function (done) {
-        instance.testAuthentication(function (error, response) {
+    describe("testAuthentication", function() {
+      it("should call testAuthentication successfully", function(done) {
+        instance.testAuthentication(function(error, response) {
           if (error) throw error;
-          expect(response.status).to.be('success');
+          expect(response.status).to.be("success");
           done();
         });
       });
     });
+    describe("createTemplate", function() {
+      it("should call createTemplate successfully", function(done) {
+        var fs = require("fs");
+        var templateDocument = fs.createReadStream(
+          "../../../spec/fixtures/pdf_template.pdf"
+        ); // File |
+        var templateName = "testPDFTemplate"; // String |
+        var parentFolderId = null;
+        instance.createTemplate(
+          templateDocument,
+          templateName,
+          parentFolderId,
+          function(error, data, response) {
+            if (error) throw error;
+            expect(data.name).to.be("testPDFTemplate");
+            expect(data.id).to.match(/^tpl_/);
+            done();
+          }
+        );
+      });
+    });
   });
-}));
+});

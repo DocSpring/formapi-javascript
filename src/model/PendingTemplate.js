@@ -36,7 +36,7 @@
   /**
    * The PendingTemplate model module.
    * @module model/PendingTemplate
-   * @version 2.10.0
+   * @version 2.12.0
    */
 
   /**
@@ -46,6 +46,8 @@
    */
   var exports = function() {
     var _this = this;
+
+
 
 
 
@@ -79,6 +81,9 @@
       if (data.hasOwnProperty('webhook_url')) {
         obj['webhook_url'] = ApiClient.convertToType(data['webhook_url'], 'String');
       }
+      if (data.hasOwnProperty('parent_folder_id')) {
+        obj['parent_folder_id'] = ApiClient.convertToType(data['parent_folder_id'], 'String');
+      }
       if (data.hasOwnProperty('expire_after')) {
         obj['expire_after'] = ApiClient.convertToType(data['expire_after'], 'Number');
       }
@@ -90,6 +95,9 @@
       }
       if (data.hasOwnProperty('slack_webhook_url')) {
         obj['slack_webhook_url'] = ApiClient.convertToType(data['slack_webhook_url'], 'String');
+      }
+      if (data.hasOwnProperty('path')) {
+        obj['path'] = ApiClient.convertToType(data['path'], 'String');
       }
       if (data.hasOwnProperty('public_web_form')) {
         obj['public_web_form'] = ApiClient.convertToType(data['public_web_form'], 'Boolean');
@@ -125,6 +133,10 @@
    */
   exports.prototype['webhook_url'] = undefined;
   /**
+   * @member {String} parent_folder_id
+   */
+  exports.prototype['parent_folder_id'] = undefined;
+  /**
    * @member {Number} expire_after
    */
   exports.prototype['expire_after'] = undefined;
@@ -140,6 +152,10 @@
    * @member {String} slack_webhook_url
    */
   exports.prototype['slack_webhook_url'] = undefined;
+  /**
+   * @member {String} path
+   */
+  exports.prototype['path'] = undefined;
   /**
    * @member {Boolean} public_web_form
    */

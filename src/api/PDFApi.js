@@ -16,24 +16,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['../ApiClient', '../model/AuthenticationError', '../model/AuthenticationSuccessResponse', '../model/CombinePdfsData', '../model/CombinedSubmission', '../model/CombinedSubmissionData', '../model/CreateCombinedSubmissionResponse', '../model/CreateCustomFileData', '../model/CreateCustomFileResponse', '../model/CreateSubmissionBatchResponse', '../model/CreateSubmissionDataRequestTokenResponse', '../model/CreateSubmissionResponse', '../model/CreateTemplateData', '../model/Error', '../model/InvalidRequest', '../model/PendingTemplate', '../model/Submission', '../model/SubmissionBatch', '../model/SubmissionBatchData', '../model/SubmissionData', '../model/SubmissionDataRequest', '../model/Template', '../model/UpdateDataRequestResponse', '../model/UpdateSubmissionDataRequestData'], factory);
+    define(['../ApiClient', '../model/AuthenticationError', '../model/AuthenticationSuccessResponse', '../model/CombinePdfsData', '../model/CombinedSubmission', '../model/CombinedSubmissionData', '../model/CreateCombinedSubmissionResponse', '../model/CreateCustomFileData', '../model/CreateCustomFileResponse', '../model/CreateFolderData', '../model/CreateSubmissionBatchResponse', '../model/CreateSubmissionDataRequestTokenResponse', '../model/CreateSubmissionResponse', '../model/CreateTemplateData', '../model/Error', '../model/Folder', '../model/InvalidRequest', '../model/MoveFolderData', '../model/MoveTemplateData', '../model/PendingTemplate', '../model/RenameFolderData', '../model/Submission', '../model/SubmissionBatch', '../model/SubmissionBatchData', '../model/SubmissionData', '../model/SubmissionDataRequest', '../model/Template', '../model/UpdateDataRequestResponse', '../model/UpdateSubmissionDataRequestData'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/AuthenticationError'), require('../model/AuthenticationSuccessResponse'), require('../model/CombinePdfsData'), require('../model/CombinedSubmission'), require('../model/CombinedSubmissionData'), require('../model/CreateCombinedSubmissionResponse'), require('../model/CreateCustomFileData'), require('../model/CreateCustomFileResponse'), require('../model/CreateSubmissionBatchResponse'), require('../model/CreateSubmissionDataRequestTokenResponse'), require('../model/CreateSubmissionResponse'), require('../model/CreateTemplateData'), require('../model/Error'), require('../model/InvalidRequest'), require('../model/PendingTemplate'), require('../model/Submission'), require('../model/SubmissionBatch'), require('../model/SubmissionBatchData'), require('../model/SubmissionData'), require('../model/SubmissionDataRequest'), require('../model/Template'), require('../model/UpdateDataRequestResponse'), require('../model/UpdateSubmissionDataRequestData'));
+    module.exports = factory(require('../ApiClient'), require('../model/AuthenticationError'), require('../model/AuthenticationSuccessResponse'), require('../model/CombinePdfsData'), require('../model/CombinedSubmission'), require('../model/CombinedSubmissionData'), require('../model/CreateCombinedSubmissionResponse'), require('../model/CreateCustomFileData'), require('../model/CreateCustomFileResponse'), require('../model/CreateFolderData'), require('../model/CreateSubmissionBatchResponse'), require('../model/CreateSubmissionDataRequestTokenResponse'), require('../model/CreateSubmissionResponse'), require('../model/CreateTemplateData'), require('../model/Error'), require('../model/Folder'), require('../model/InvalidRequest'), require('../model/MoveFolderData'), require('../model/MoveTemplateData'), require('../model/PendingTemplate'), require('../model/RenameFolderData'), require('../model/Submission'), require('../model/SubmissionBatch'), require('../model/SubmissionBatchData'), require('../model/SubmissionData'), require('../model/SubmissionDataRequest'), require('../model/Template'), require('../model/UpdateDataRequestResponse'), require('../model/UpdateSubmissionDataRequestData'));
   } else {
     // Browser globals (root is window)
     if (!root.FormAPI) {
       root.FormAPI = {};
     }
-    root.FormAPI.PDFApi = factory(root.FormAPI.ApiClient, root.FormAPI.AuthenticationError, root.FormAPI.AuthenticationSuccessResponse, root.FormAPI.CombinePdfsData, root.FormAPI.CombinedSubmission, root.FormAPI.CombinedSubmissionData, root.FormAPI.CreateCombinedSubmissionResponse, root.FormAPI.CreateCustomFileData, root.FormAPI.CreateCustomFileResponse, root.FormAPI.CreateSubmissionBatchResponse, root.FormAPI.CreateSubmissionDataRequestTokenResponse, root.FormAPI.CreateSubmissionResponse, root.FormAPI.CreateTemplateData, root.FormAPI.Error, root.FormAPI.InvalidRequest, root.FormAPI.PendingTemplate, root.FormAPI.Submission, root.FormAPI.SubmissionBatch, root.FormAPI.SubmissionBatchData, root.FormAPI.SubmissionData, root.FormAPI.SubmissionDataRequest, root.FormAPI.Template, root.FormAPI.UpdateDataRequestResponse, root.FormAPI.UpdateSubmissionDataRequestData);
+    root.FormAPI.PDFApi = factory(root.FormAPI.ApiClient, root.FormAPI.AuthenticationError, root.FormAPI.AuthenticationSuccessResponse, root.FormAPI.CombinePdfsData, root.FormAPI.CombinedSubmission, root.FormAPI.CombinedSubmissionData, root.FormAPI.CreateCombinedSubmissionResponse, root.FormAPI.CreateCustomFileData, root.FormAPI.CreateCustomFileResponse, root.FormAPI.CreateFolderData, root.FormAPI.CreateSubmissionBatchResponse, root.FormAPI.CreateSubmissionDataRequestTokenResponse, root.FormAPI.CreateSubmissionResponse, root.FormAPI.CreateTemplateData, root.FormAPI.Error, root.FormAPI.Folder, root.FormAPI.InvalidRequest, root.FormAPI.MoveFolderData, root.FormAPI.MoveTemplateData, root.FormAPI.PendingTemplate, root.FormAPI.RenameFolderData, root.FormAPI.Submission, root.FormAPI.SubmissionBatch, root.FormAPI.SubmissionBatchData, root.FormAPI.SubmissionData, root.FormAPI.SubmissionDataRequest, root.FormAPI.Template, root.FormAPI.UpdateDataRequestResponse, root.FormAPI.UpdateSubmissionDataRequestData);
   }
-}(this, function(ApiClient, AuthenticationError, AuthenticationSuccessResponse, CombinePdfsData, CombinedSubmission, CombinedSubmissionData, CreateCombinedSubmissionResponse, CreateCustomFileData, CreateCustomFileResponse, CreateSubmissionBatchResponse, CreateSubmissionDataRequestTokenResponse, CreateSubmissionResponse, CreateTemplateData, Error, InvalidRequest, PendingTemplate, Submission, SubmissionBatch, SubmissionBatchData, SubmissionData, SubmissionDataRequest, Template, UpdateDataRequestResponse, UpdateSubmissionDataRequestData) {
+}(this, function(ApiClient, AuthenticationError, AuthenticationSuccessResponse, CombinePdfsData, CombinedSubmission, CombinedSubmissionData, CreateCombinedSubmissionResponse, CreateCustomFileData, CreateCustomFileResponse, CreateFolderData, CreateSubmissionBatchResponse, CreateSubmissionDataRequestTokenResponse, CreateSubmissionResponse, CreateTemplateData, Error, Folder, InvalidRequest, MoveFolderData, MoveTemplateData, PendingTemplate, RenameFolderData, Submission, SubmissionBatch, SubmissionBatchData, SubmissionData, SubmissionDataRequest, Template, UpdateDataRequestResponse, UpdateSubmissionDataRequestData) {
   'use strict';
 
   /**
    * PDF service.
    * @module api/PDFApi
-   * @version 2.10.0
+   * @version 2.12.0
    */
 
   /**
@@ -332,6 +332,52 @@
     }
 
     /**
+     * Callback function to receive the result of the createFolder operation.
+     * @callback module:api/PDFApi~createFolderCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/Folder} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Create a folder
+     * @param {module:model/CreateFolderData} createFolderData 
+     * @param {module:api/PDFApi~createFolderCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/Folder}
+     */
+    this.createFolder = function(createFolderData, callback) {
+      var postBody = createFolderData;
+
+      // verify the required parameter 'createFolderData' is set
+      if (createFolderData === undefined || createFolderData === null) {
+        throw new Error("Missing the required parameter 'createFolderData' when calling createFolder");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['api_token_basic'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = Folder;
+
+      return this.apiClient.callApi(
+        '/folders/', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the createTemplate operation.
      * @callback module:api/PDFApi~createTemplateCallback
      * @param {String} error Error message, if any.
@@ -343,10 +389,13 @@
      * Upload a new PDF template with a file upload
      * @param {File} templateDocument 
      * @param {String} templateName 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.templateParentFolderId 
      * @param {module:api/PDFApi~createTemplateCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PendingTemplate}
      */
-    this.createTemplate = function(templateDocument, templateName, callback) {
+    this.createTemplate = function(templateDocument, templateName, opts, callback) {
+      opts = opts || {};
       var postBody = null;
 
       // verify the required parameter 'templateDocument' is set
@@ -370,7 +419,8 @@
       };
       var formParams = {
         'template[document]': templateDocument,
-        'template[name]': templateName
+        'template[name]': templateName,
+        'template[parent_folder_id]': opts['templateParentFolderId']
       };
 
       var authNames = ['api_token_basic'];
@@ -426,6 +476,53 @@
 
       return this.apiClient.callApi(
         '/templates?v=2', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the deleteFolder operation.
+     * @callback module:api/PDFApi~deleteFolderCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/Folder} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Delete a folder
+     * @param {String} folderId 
+     * @param {module:api/PDFApi~deleteFolderCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/Folder}
+     */
+    this.deleteFolder = function(folderId, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'folderId' is set
+      if (folderId === undefined || folderId === null) {
+        throw new Error("Missing the required parameter 'folderId' when calling deleteFolder");
+      }
+
+
+      var pathParams = {
+        'folder_id': folderId
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['api_token_basic'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = Folder;
+
+      return this.apiClient.callApi(
+        '/folders/{folder_id}', 'DELETE',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -823,7 +920,7 @@
      */
 
     /**
-     * Check the status of an uploaded template
+     * Get a single template
      * @param {String} templateId 
      * @param {module:api/PDFApi~getTemplateCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Template}
@@ -909,6 +1006,50 @@
     }
 
     /**
+     * Callback function to receive the result of the listFolders operation.
+     * @callback module:api/PDFApi~listFoldersCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/Folder>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get a list of all folders
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.parentFolderId Filter By Folder Id
+     * @param {module:api/PDFApi~listFoldersCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/Folder>}
+     */
+    this.listFolders = function(opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'parent_folder_id': opts['parentFolderId'],
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['api_token_basic'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = [Folder];
+
+      return this.apiClient.callApi(
+        '/folders/', 'GET',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the listTemplates operation.
      * @callback module:api/PDFApi~listTemplatesCallback
      * @param {String} error Error message, if any.
@@ -920,6 +1061,7 @@
      * Get a list of all templates
      * @param {Object} opts Optional parameters
      * @param {String} opts.query Search By Name
+     * @param {String} opts.parentFolderId Filter By Folder Id
      * @param {Number} opts.page Default: 1
      * @param {Number} opts.perPage Default: 50
      * @param {module:api/PDFApi~listTemplatesCallback} callback The callback function, accepting three arguments: error, data, response
@@ -934,6 +1076,7 @@
       };
       var queryParams = {
         'query': opts['query'],
+        'parent_folder_id': opts['parentFolderId'],
         'page': opts['page'],
         'per_page': opts['perPage'],
       };
@@ -951,6 +1094,164 @@
 
       return this.apiClient.callApi(
         '/templates', 'GET',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the moveFolderToFolder operation.
+     * @callback module:api/PDFApi~moveFolderToFolderCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/Folder} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Move a folder
+     * @param {String} folderId 
+     * @param {module:model/MoveFolderData} moveFolderData 
+     * @param {module:api/PDFApi~moveFolderToFolderCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/Folder}
+     */
+    this.moveFolderToFolder = function(folderId, moveFolderData, callback) {
+      var postBody = moveFolderData;
+
+      // verify the required parameter 'folderId' is set
+      if (folderId === undefined || folderId === null) {
+        throw new Error("Missing the required parameter 'folderId' when calling moveFolderToFolder");
+      }
+
+      // verify the required parameter 'moveFolderData' is set
+      if (moveFolderData === undefined || moveFolderData === null) {
+        throw new Error("Missing the required parameter 'moveFolderData' when calling moveFolderToFolder");
+      }
+
+
+      var pathParams = {
+        'folder_id': folderId
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['api_token_basic'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = Folder;
+
+      return this.apiClient.callApi(
+        '/folders/{folder_id}/move', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the moveTemplateToFolder operation.
+     * @callback module:api/PDFApi~moveTemplateToFolderCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/Template} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Move Template to folder
+     * @param {String} templateId 
+     * @param {module:model/MoveTemplateData} moveTemplateData 
+     * @param {module:api/PDFApi~moveTemplateToFolderCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/Template}
+     */
+    this.moveTemplateToFolder = function(templateId, moveTemplateData, callback) {
+      var postBody = moveTemplateData;
+
+      // verify the required parameter 'templateId' is set
+      if (templateId === undefined || templateId === null) {
+        throw new Error("Missing the required parameter 'templateId' when calling moveTemplateToFolder");
+      }
+
+      // verify the required parameter 'moveTemplateData' is set
+      if (moveTemplateData === undefined || moveTemplateData === null) {
+        throw new Error("Missing the required parameter 'moveTemplateData' when calling moveTemplateToFolder");
+      }
+
+
+      var pathParams = {
+        'template_id': templateId
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['api_token_basic'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = Template;
+
+      return this.apiClient.callApi(
+        '/templates/{template_id}/move', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the renameFolder operation.
+     * @callback module:api/PDFApi~renameFolderCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Rename a folder
+     * @param {String} folderId 
+     * @param {module:model/RenameFolderData} renameFolderData 
+     * @param {module:api/PDFApi~renameFolderCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    this.renameFolder = function(folderId, renameFolderData, callback) {
+      var postBody = renameFolderData;
+
+      // verify the required parameter 'folderId' is set
+      if (folderId === undefined || folderId === null) {
+        throw new Error("Missing the required parameter 'folderId' when calling renameFolder");
+      }
+
+      // verify the required parameter 'renameFolderData' is set
+      if (renameFolderData === undefined || renameFolderData === null) {
+        throw new Error("Missing the required parameter 'renameFolderData' when calling renameFolder");
+      }
+
+
+      var pathParams = {
+        'folder_id': folderId
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['api_token_basic'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = null;
+
+      return this.apiClient.callApi(
+        '/folders/{folder_id}/rename', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

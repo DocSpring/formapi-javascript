@@ -68,6 +68,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property parentFolderId (base name: "parent_folder_id")', function() {
+      // uncomment below and update the code to test the property parentFolderId
+      //var instance = new FormAPI.PendingTemplate();
+      //expect(instance).to.be();
+    });
+
     it('should have the property expireAfter (base name: "expire_after")', function() {
       // uncomment below and update the code to test the property expireAfter
       //var instance = new FormAPI.PendingTemplate();
@@ -88,6 +94,12 @@
 
     it('should have the property slackWebhookUrl (base name: "slack_webhook_url")', function() {
       // uncomment below and update the code to test the property slackWebhookUrl
+      //var instance = new FormAPI.PendingTemplate();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property path (base name: "path")', function() {
+      // uncomment below and update the code to test the property path
       //var instance = new FormAPI.PendingTemplate();
       //expect(instance).to.be();
     });

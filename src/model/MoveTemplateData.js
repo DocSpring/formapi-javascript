@@ -25,7 +25,7 @@
     if (!root.FormAPI) {
       root.FormAPI = {};
     }
-    root.FormAPI.CreateCustomFileData = factory(root.FormAPI.ApiClient);
+    root.FormAPI.MoveTemplateData = factory(root.FormAPI.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -34,45 +34,44 @@
 
 
   /**
-   * The CreateCustomFileData model module.
-   * @module model/CreateCustomFileData
+   * The MoveTemplateData model module.
+   * @module model/MoveTemplateData
    * @version 2.12.0
    */
 
   /**
-   * Constructs a new <code>CreateCustomFileData</code>.
-   * @alias module:model/CreateCustomFileData
+   * Constructs a new <code>MoveTemplateData</code>.
+   * @alias module:model/MoveTemplateData
    * @class
-   * @param cacheId {String} 
    */
-  var exports = function(cacheId) {
+  var exports = function() {
     var _this = this;
 
-    _this['cache_id'] = cacheId;
+
   };
 
   /**
-   * Constructs a <code>CreateCustomFileData</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>MoveTemplateData</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/CreateCustomFileData} obj Optional instance to populate.
-   * @return {module:model/CreateCustomFileData} The populated <code>CreateCustomFileData</code> instance.
+   * @param {module:model/MoveTemplateData} obj Optional instance to populate.
+   * @return {module:model/MoveTemplateData} The populated <code>MoveTemplateData</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('cache_id')) {
-        obj['cache_id'] = ApiClient.convertToType(data['cache_id'], 'String');
+      if (data.hasOwnProperty('parent_folder_id')) {
+        obj['parent_folder_id'] = ApiClient.convertToType(data['parent_folder_id'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * @member {String} cache_id
+   * @member {String} parent_folder_id
    */
-  exports.prototype['cache_id'] = undefined;
+  exports.prototype['parent_folder_id'] = undefined;
 
 
 

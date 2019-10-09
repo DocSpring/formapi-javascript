@@ -25,7 +25,7 @@
     if (!root.FormAPI) {
       root.FormAPI = {};
     }
-    root.FormAPI.CreateCustomFileData = factory(root.FormAPI.ApiClient);
+    root.FormAPI.RenameFolderData = factory(root.FormAPI.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -34,45 +34,45 @@
 
 
   /**
-   * The CreateCustomFileData model module.
-   * @module model/CreateCustomFileData
+   * The RenameFolderData model module.
+   * @module model/RenameFolderData
    * @version 2.12.0
    */
 
   /**
-   * Constructs a new <code>CreateCustomFileData</code>.
-   * @alias module:model/CreateCustomFileData
+   * Constructs a new <code>RenameFolderData</code>.
+   * @alias module:model/RenameFolderData
    * @class
-   * @param cacheId {String} 
+   * @param name {String} 
    */
-  var exports = function(cacheId) {
+  var exports = function(name) {
     var _this = this;
 
-    _this['cache_id'] = cacheId;
+    _this['name'] = name;
   };
 
   /**
-   * Constructs a <code>CreateCustomFileData</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>RenameFolderData</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/CreateCustomFileData} obj Optional instance to populate.
-   * @return {module:model/CreateCustomFileData} The populated <code>CreateCustomFileData</code> instance.
+   * @param {module:model/RenameFolderData} obj Optional instance to populate.
+   * @return {module:model/RenameFolderData} The populated <code>RenameFolderData</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('cache_id')) {
-        obj['cache_id'] = ApiClient.convertToType(data['cache_id'], 'String');
+      if (data.hasOwnProperty('name')) {
+        obj['name'] = ApiClient.convertToType(data['name'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * @member {String} cache_id
+   * @member {String} name
    */
-  exports.prototype['cache_id'] = undefined;
+  exports.prototype['name'] = undefined;
 
 
 

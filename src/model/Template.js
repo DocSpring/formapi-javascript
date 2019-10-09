@@ -36,7 +36,7 @@
   /**
    * The Template model module.
    * @module model/Template
-   * @version 2.10.0
+   * @version 2.12.0
    */
 
   /**
@@ -46,6 +46,10 @@
    */
   var exports = function() {
     var _this = this;
+
+
+
+
 
 
 
@@ -80,6 +84,9 @@
       if (data.hasOwnProperty('webhook_url')) {
         obj['webhook_url'] = ApiClient.convertToType(data['webhook_url'], 'String');
       }
+      if (data.hasOwnProperty('parent_folder_id')) {
+        obj['parent_folder_id'] = ApiClient.convertToType(data['parent_folder_id'], 'String');
+      }
       if (data.hasOwnProperty('expire_after')) {
         obj['expire_after'] = ApiClient.convertToType(data['expire_after'], 'Number');
       }
@@ -91,6 +98,9 @@
       }
       if (data.hasOwnProperty('slack_webhook_url')) {
         obj['slack_webhook_url'] = ApiClient.convertToType(data['slack_webhook_url'], 'String');
+      }
+      if (data.hasOwnProperty('path')) {
+        obj['path'] = ApiClient.convertToType(data['path'], 'String');
       }
       if (data.hasOwnProperty('public_web_form')) {
         obj['public_web_form'] = ApiClient.convertToType(data['public_web_form'], 'Boolean');
@@ -104,6 +114,9 @@
       if (data.hasOwnProperty('name')) {
         obj['name'] = ApiClient.convertToType(data['name'], 'String');
       }
+      if (data.hasOwnProperty('permanent_document_url')) {
+        obj['permanent_document_url'] = ApiClient.convertToType(data['permanent_document_url'], 'String');
+      }
       if (data.hasOwnProperty('template_type')) {
         obj['template_type'] = ApiClient.convertToType(data['template_type'], 'String');
       }
@@ -115,6 +128,9 @@
       }
       if (data.hasOwnProperty('redirect_url')) {
         obj['redirect_url'] = ApiClient.convertToType(data['redirect_url'], 'String');
+      }
+      if (data.hasOwnProperty('document_url')) {
+        obj['document_url'] = ApiClient.convertToType(data['document_url'], 'String');
       }
     }
     return obj;
@@ -128,6 +144,10 @@
    * @member {String} webhook_url
    */
   exports.prototype['webhook_url'] = undefined;
+  /**
+   * @member {String} parent_folder_id
+   */
+  exports.prototype['parent_folder_id'] = undefined;
   /**
    * @member {Number} expire_after
    */
@@ -145,6 +165,10 @@
    */
   exports.prototype['slack_webhook_url'] = undefined;
   /**
+   * @member {String} path
+   */
+  exports.prototype['path'] = undefined;
+  /**
    * @member {Boolean} public_web_form
    */
   exports.prototype['public_web_form'] = undefined;
@@ -161,6 +185,10 @@
    */
   exports.prototype['name'] = undefined;
   /**
+   * @member {String} permanent_document_url
+   */
+  exports.prototype['permanent_document_url'] = undefined;
+  /**
    * @member {String} template_type
    */
   exports.prototype['template_type'] = undefined;
@@ -176,6 +204,10 @@
    * @member {String} redirect_url
    */
   exports.prototype['redirect_url'] = undefined;
+  /**
+   * @member {String} document_url
+   */
+  exports.prototype['document_url'] = undefined;
 
 
   /**

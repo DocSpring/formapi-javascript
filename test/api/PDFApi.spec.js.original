@@ -110,6 +110,16 @@
         done();
       });
     });
+    describe('createFolder', function() {
+      it('should call createFolder successfully', function(done) {
+        //uncomment below and update the code to test createFolder
+        //instance.createFolder(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('createTemplate', function() {
       it('should call createTemplate successfully', function(done) {
         //uncomment below and update the code to test createTemplate
@@ -124,6 +134,16 @@
       it('should call createTemplateFromUpload successfully', function(done) {
         //uncomment below and update the code to test createTemplateFromUpload
         //instance.createTemplateFromUpload(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('deleteFolder', function() {
+      it('should call deleteFolder successfully', function(done) {
+        //uncomment below and update the code to test deleteFolder
+        //instance.deleteFolder(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -230,10 +250,50 @@
         done();
       });
     });
+    describe('listFolders', function() {
+      it('should call listFolders successfully', function(done) {
+        //uncomment below and update the code to test listFolders
+        //instance.listFolders(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('listTemplates', function() {
       it('should call listTemplates successfully', function(done) {
         //uncomment below and update the code to test listTemplates
         //instance.listTemplates(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('moveFolderToFolder', function() {
+      it('should call moveFolderToFolder successfully', function(done) {
+        //uncomment below and update the code to test moveFolderToFolder
+        //instance.moveFolderToFolder(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('moveTemplateToFolder', function() {
+      it('should call moveTemplateToFolder successfully', function(done) {
+        //uncomment below and update the code to test moveTemplateToFolder
+        //instance.moveTemplateToFolder(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('renameFolder', function() {
+      it('should call renameFolder successfully', function(done) {
+        //uncomment below and update the code to test renameFolder
+        //instance.renameFolder(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
