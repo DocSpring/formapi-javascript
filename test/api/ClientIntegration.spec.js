@@ -27,20 +27,21 @@
 })(this, function(expect, FormAPI) {
   "use strict";
 
-  var instance;
+  var formapi;
 
   beforeEach(function() {
     var config = new FormAPI.Configuration();
     config.apiTokenId = "api_token123";
     config.apiTokenSecret = "testsecret123";
+    formapi = new FormAPI.Client(config);
     config.basePath = "http://api.formapi.local:31337/api/v1";
-    instance = new FormAPI.Client(config);
+    // formapi = new FormAPI.Client(config);
   });
 
   describe("Client", function() {
     describe("testAuthentication", function() {
       it("should call testAuthentication method on PDFApi prototype", function(done) {
-        instance.testAuthentication(function(error, response) {
+        formapi.testAuthentication(function(error, response) {
           if (error) throw error;
           expect(response.status).to.be("success");
           done();
@@ -54,7 +55,7 @@
         var opts = {
           submission_ids: ["sub_000000000000000001", "sub_000000000000000002"]
         };
-        instance.combineSubmissions(opts, function(error, response) {
+        formapi.combineSubmissions(opts, function(error, response) {
           if (error) throw error;
           expect(response.status).to.be("success");
           expect(response.combined_submission.id).to.match(/^com_/);
@@ -64,25 +65,84 @@
       });
     });
 
+    describe("combinePdfs", function() {
+      it("should call combinePdfs successfully and wait for the PDF", function(done) {
+        this.timeout(10000);
+        var options = {
+          test: false,
+          source_pdfs: [
+            { type: "submission", id: "sub_000000000000000001" },
+            { type: "template", id: "tpl_000000000000000001" },
+            { type: "submission", id: "sub_000000000000000002" }
+          ],
+          wait: true
+        };
+        
+        formapi.combinePdfs(options, function(error, response) {
+          if (error) throw error;
+          var combined_submission = response.combined_submission;
+        
+          expect(response.status).to.be("success");
+          expect(combined_submission.id).to.match(/^com_/);
+        
+          expect(combined_submission.state).to.be("processed");
+          expect(combined_submission.download_url).to.not.be(null);
+          expect(combined_submission.download_url).to.not.be('');
+          done();
+        });
+      });
+
+      it("should call combinePdfs successfully and not wait for the PDF", function(done) {
+        this.timeout(10000);
+        var options = {
+          test: false,
+          source_pdfs: [
+            { type: "submission", id: "sub_000000000000000001" },
+            { type: "template", id: "tpl_000000000000000001" },
+            { type: "submission", id: "sub_000000000000000002" }
+          ],
+          wait: false
+        };
+        
+        formapi.combinePdfs(options, function(error, response) {
+          if (error) throw error;
+          var combined_submission = response.combined_submission;
+        
+          expect(response.status).to.be("success");
+          expect(combined_submission.id).to.match(/^com_/);
+        
+          expect(combined_submission.state).to.be("pending");
+          expect(combined_submission.download_url).to.be(null);
+          done();
+        });
+      });
+    });
+
     describe("generatePDF", function() {
-      it("should call generatePDF and wait for PDF", function(done) {
+      it("should call generatePDF and wait for the PDF", function(done) {
         this.timeout(10000);
         var template_id = "tpl_000000000000000001";
-        var options = {
+        var submission_data = {
           editable: false,
           data: {
             title: "Test PDF",
             description: "This PDF is great!"
-          }
+          },
+          metadata: {
+            user_id: 123
+          },
+          wait: true
         };
-        instance.generatePDF(template_id, options, function(error, response) {
+        formapi.generatePDF(template_id, submission_data, function(error, response) {
           if (error) throw error;
-          expect(response.status).to.be("success");
           var submission = response.submission;
+          expect(response.status).to.be("success");
           expect(submission.id).to.match(/^sub_/);
           expect(submission.expired).to.be(false);
           expect(submission.editable).to.be(false);
           expect(submission.state).to.be("processed");
+          expect(submission.download_url).to.not.be(null);
+          expect(submission.download_url).to.not.be('');
           done();
         });
       });
@@ -92,17 +152,25 @@
       it("should call generatePDF and not wait for the PDF", function(done) {
         this.timeout(10000);
         var template_id = "tpl_000000000000000001";
-        var options = {
+        var submission_data = {
+          editable: false,
           data: {
             title: "Test PDF",
             description: "This PDF is great!"
           },
+          metadata: {
+            user_id: 123
+          },
           wait: false
         };
-        instance.generatePDF(template_id, options, function(error, response) {
+        formapi.generatePDF(template_id, submission_data, function(error, response) {
           if (error) throw error;
+          var submission = response.submission;
           expect(response.status).to.be("success");
-          expect(response.submission.state).to.be("pending");
+          expect(submission.id).to.match(/^sub_/);
+          expect(submission.expired).to.be(false);
+          expect(submission.editable).to.be(false);
+          expect(submission.state).to.be("pending");
           done();
         });
       });

@@ -210,12 +210,9 @@
     PDFApi.call(this, this.apiClient);
     var self = this;
 
-    var waitForPDFJob = function(_options, startJob, updateRecord, callback) {
-      var options = Object.assign({}, _options);
+    var waitForPDFJob = function(options, startJob, updateRecord, callback) {
       var timeout = options.timeout != null ? options.timeout : 60;
-      delete options.timeout;
       var wait = options.wait == null ? true : !!options.wait;
-      delete options.wait;
 
       startJob(function(record) {
         if (!wait || record.state != "pending") {
@@ -253,9 +250,14 @@
     };
 
     this.originalCombineSubmissions = this.combineSubmissions.bind(this);
-    this.combineSubmissions = function(options, callback) {
+    this.combineSubmissions = function(_options, callback) {
+      var options = Object.assign({}, _options);
+      // Don't send timeout or wait options to the API - causes a schema validation error.
+      delete options.timeout;
+      delete options.wait;
+
       waitForPDFJob(
-        options,
+        _options,
         function(waitCallback) {
           self.originalCombineSubmissions(options, function(error, response) {
             if (error) {
@@ -291,10 +293,59 @@
       );
     };
 
-    this.originalGeneratePDF = this.generatePDF.bind(this);
-    this.generatePDF = function(templateId, options, callback) {
+    this.originalCombinePdfs = this.combinePdfs.bind(this);
+    this.combinePdfs = function(_options, callback) {
+      var options = Object.assign({}, _options);
+      // Don't send timeout or wait options to the API - causes a schema validation error.
+      delete options.timeout;
+      delete options.wait;
+
       waitForPDFJob(
-        options,
+        _options,
+        function(waitCallback) {
+          self.originalCombinePdfs(options, function(error, response) {
+            if (error) {
+              callback(error, response);
+              return;
+            }
+            waitCallback(response.combined_submission);
+          });
+        },
+        function(record, updateCallback) {
+          self.getCombinedSubmission(record.id, function(
+            error,
+            combinedSubmission
+          ) {
+            if (error) {
+              callback(error, combinedSubmission);
+              return;
+            }
+            updateCallback(combinedSubmission);
+          });
+        },
+        function(error, record, success) {
+          if (error) {
+            callback(error, record);
+            return;
+          }
+          var response = CreateCombinedSubmissionResponse.constructFromObject({
+            status: success ? "success" : "error",
+            combined_submission: record
+          });
+          callback(error, response);
+        }
+      );
+    };
+
+    this.originalGeneratePDF = this.generatePDF.bind(this);
+    this.generatePDF = function(templateId, _options, callback) {
+      var options = Object.assign({}, _options);
+      // Don't send timeout or wait options to the API - causes a schema validation error.
+      delete options.timeout;
+      delete options.wait;
+
+      waitForPDFJob(
+        _options,
         function(waitCallback) {
           self.originalGeneratePDF(templateId, options, function(
             error,

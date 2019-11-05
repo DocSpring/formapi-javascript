@@ -36,7 +36,7 @@
   /**
    * The CreateTemplateData model module.
    * @module model/CreateTemplateData
-   * @version 2.13.0
+   * @version 2.14.0
    */
 
   /**

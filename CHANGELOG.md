@@ -1,3 +1,7 @@
+### 2.14.0 [November 6, 2019]
+
+- Added status polling wrapper for combinePdfs, so that it returns a processed PDF by default
+
 ### 2.13.0 [October 10, 2019]
 
 - Add permanent_download_url attribute to Submission model
